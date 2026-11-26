@@ -1,0 +1,3767 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VL | VALENTINO — Alta Perfumaria & Estilo de Vida</title>
+
+  <!-- Google Fonts: Tipografia Editorial Serifada + Sans-Serif Modernista -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    /* ==========================================================================
+       1. VARIÁVEIS DE DESIGN & PALETA OFICIAL VL | VALENTINO
+       ========================================================================== */
+    :root {
+      --bg-primary: #0B0B0C;
+      --bg-secondary: #141416;
+      --bg-elevated: #1B1B1E;
+      --bg-glass: rgba(11, 11, 12, 0.88);
+
+      --gold-primary: #D4AF37;
+      --gold-secondary: #C5A059;
+      --gold-light: #E8CF7D;
+      --gold-dim: rgba(212, 175, 55, 0.16);
+      --gold-border: rgba(212, 175, 55, 0.28);
+      --gold-border-strong: rgba(212, 175, 55, 0.62);
+
+      --cream-primary: #F5EFE6;
+      --cream-secondary: #E8DFD1;
+      --text-muted: #A9A195;
+      --text-subtle: #787268;
+
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+
+      --radius-sm: 4px;
+      --radius-md: 10px;
+      --radius-lg: 16px;
+      --transition-smooth: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+      --shadow-luxury: 0 24px 60px rgba(0, 0, 0, 0.65);
+      --shadow-gold: 0 10px 30px rgba(212, 175, 55, 0.14);
+    }
+
+    /* ==========================================================================
+       2. RESET & BASE GLOBAL
+       ========================================================================== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background-color: var(--bg-primary);
+      color: var(--cream-primary);
+      font-family: var(--font-sans);
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      background:
+        radial-gradient(circle at 15% 10%, rgba(212, 175, 55, 0.05), transparent 38%),
+        radial-gradient(circle at 85% 30%, rgba(197, 160, 89, 0.04), transparent 42%),
+        var(--bg-primary);
+      min-height: 100vh;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    ::selection {
+      background: var(--gold-primary);
+      color: var(--bg-primary);
+    }
+
+    /* Scrollbar refinada */
+    ::-webkit-scrollbar {
+      width: 7px;
+      height: 7px;
+    }
+    ::-webkit-scrollbar-track {
+      background: var(--bg-primary);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #2C2A25;
+      border-radius: 99px;
+      border: 1px solid rgba(212, 175, 55, 0.25);
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--gold-secondary);
+    }
+
+    button, input {
+      font-family: inherit;
+    }
+
+    /* ==========================================================================
+       3. NAVEGAÇÃO SUPERIOR FIXA
+       ========================================================================== */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 900;
+      background: var(--bg-glass);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--gold-border);
+      transition: var(--transition-smooth);
+    }
+
+    .navbar-inner {
+      max-width: 1360px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .brand-monogram {
+      font-family: var(--font-serif);
+      font-size: 2rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      background: linear-gradient(135deg, var(--gold-light), var(--gold-primary), var(--gold-secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      line-height: 1;
+    }
+
+    .brand-divider {
+      width: 1px;
+      height: 24px;
+      background: var(--gold-border-strong);
+    }
+
+    .brand-wordmark {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-name {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      font-weight: 500;
+      letter-spacing: 0.28em;
+      color: var(--cream-primary);
+      line-height: 1.1;
+    }
+
+    .brand-sub {
+      font-size: 0.62rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--gold-secondary);
+      margin-top: 2px;
+    }
+
+    /* Abas de Navegação */
+    .nav-tabs {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(20, 20, 22, 0.9);
+      padding: 0.35rem;
+      border-radius: 999px;
+      border: 1px solid rgba(212, 175, 55, 0.2);
+    }
+
+    .nav-tab {
+      background: transparent;
+      border: none;
+      color: var(--cream-secondary);
+      padding: 0.6rem 1.35rem;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      position: relative;
+    }
+
+    .nav-tab:hover {
+      color: var(--gold-light);
+    }
+
+    .nav-tab.active {
+      background: linear-gradient(135deg, rgba(212, 175, 55, 0.22), rgba(197, 160, 89, 0.1));
+      color: var(--gold-light);
+      box-shadow: inset 0 0 0 1px var(--gold-border-strong);
+    }
+
+    .ai-pulse-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #4ADE80;
+      box-shadow: 0 0 8px #4ADE80;
+      display: inline-block;
+    }
+
+    /* Ações Direita (Sacola) */
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .bag-btn {
+      position: relative;
+      background: var(--bg-secondary);
+      border: 1px solid var(--gold-border);
+      color: var(--cream-primary);
+      padding: 0.65rem 1.15rem;
+      border-radius: 999px;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+      font-size: 0.82rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .bag-btn:hover {
+      border-color: var(--gold-primary);
+      box-shadow: var(--shadow-gold);
+      color: var(--gold-light);
+    }
+
+    .bag-count {
+      background: linear-gradient(135deg, var(--gold-primary), var(--gold-secondary));
+      color: var(--bg-primary);
+      font-weight: 700;
+      font-size: 0.72rem;
+      min-width: 21px;
+      height: 21px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 5px;
+      transition: transform 0.25s ease;
+    }
+
+    .bag-count.bump {
+      transform: scale(1.28);
+    }
+
+    /* ==========================================================================
+       4. CONTAINER PRINCIPAL & TRANSIÇÃO DE ABAS
+       ========================================================================== */
+    .main-wrapper {
+      padding-top: 82px;
+      min-height: 100vh;
+    }
+
+    .tab-view {
+      display: none;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 0.45s ease, transform 0.45s ease;
+    }
+
+    .tab-view.active {
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
+      animation: fadeSlideIn 0.45s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+
+    @keyframes fadeSlideIn {
+      from {
+        opacity: 0;
+        transform: translateY(14px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .container {
+      max-width: 1360px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* ==========================================================================
+       5. HERO EDITORIAL DA COLEÇÃO
+       ========================================================================== */
+    .editorial-hero {
+      padding: 3.75rem 0 2.5rem;
+      border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.35fr 0.95fr;
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
+      font-size: 0.74rem;
+      font-weight: 600;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--gold-primary);
+      margin-bottom: 1rem;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 28px;
+      height: 1px;
+      background: var(--gold-primary);
+    }
+
+    .hero-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2.4rem, 4.4vw, 3.85rem);
+      font-weight: 500;
+      line-height: 1.08;
+      color: var(--cream-primary);
+      letter-spacing: -0.01em;
+      margin-bottom: 1.1rem;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--gold-light);
+      font-weight: 400;
+    }
+
+    .hero-desc {
+      color: var(--cream-secondary);
+      font-size: 0.98rem;
+      max-width: 620px;
+      font-weight: 300;
+      line-height: 1.75;
+    }
+
+    .hero-stats-card {
+      background: linear-gradient(145deg, rgba(20, 20, 22, 0.95), rgba(11, 11, 12, 0.95));
+      border: 1px solid var(--gold-border);
+      border-radius: var(--radius-lg);
+      padding: 1.75rem;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      position: relative;
+    }
+
+    .hero-stats-card::after {
+      content: "";
+      position: absolute;
+      inset: 6px;
+      border: 1px solid rgba(212, 175, 55, 0.1);
+      border-radius: 12px;
+      pointer-events: none;
+    }
+
+    .stat-item {
+      text-align: center;
+      padding: 0.5rem;
+    }
+
+    .stat-number {
+      font-family: var(--font-serif);
+      font-size: 2.1rem;
+      font-weight: 600;
+      color: var(--gold-primary);
+      line-height: 1;
+      margin-bottom: 0.35rem;
+    }
+
+    .stat-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    /* ==========================================================================
+       6. BARRA DE FILTROS & BUSCA (ESTILO FRAGRANTICA LUXO)
+       ========================================================================== */
+    .catalog-controls {
+      padding: 2rem 0 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .controls-top-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .collection-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+
+    .filter-pill {
+      background: var(--bg-secondary);
+      border: 1px solid rgba(212, 175, 55, 0.22);
+      color: var(--cream-secondary);
+      padding: 0.62rem 1.25rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+
+    .filter-pill:hover {
+      border-color: var(--gold-primary);
+      color: var(--gold-light);
+    }
+
+    .filter-pill.active {
+      background: linear-gradient(135deg, var(--gold-primary), var(--gold-secondary));
+      color: var(--bg-primary);
+      border-color: var(--gold-primary);
+      font-weight: 600;
+      box-shadow: 0 6px 20px rgba(212, 175, 55, 0.25);
+    }
+
+    .search-box {
+      position: relative;
+      min-width: 310px;
+      flex: 1;
+      max-width: 420px;
+    }
+
+    .search-box svg {
+      position: absolute;
+      left: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--gold-secondary);
+      pointer-events: none;
+    }
+
+    .search-input {
+      width: 100%;
+      background: var(--bg-secondary);
+      border: 1px solid var(--gold-border);
+      color: var(--cream-primary);
+      padding: 0.72rem 2.5rem 0.72rem 2.75rem;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      outline: none;
+      transition: var(--transition-smooth);
+    }
+
+    .search-input::placeholder {
+      color: var(--text-subtle);
+    }
+
+    .search-input:focus {
+      border-color: var(--gold-primary);
+      box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.12);
+    }
+
+    .clear-search {
+      position: absolute;
+      right: 0.9rem;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      font-size: 1rem;
+      display: none;
+    }
+
+    .controls-bottom-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding-top: 0.75rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .family-filters {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.45rem;
+    }
+
+    .family-label {
+      font-size: 0.74rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--text-muted);
+      margin-right: 0.4rem;
+    }
+
+    .family-chip {
+      background: transparent;
+      border: 1px solid rgba(232, 223, 209, 0.15);
+      color: var(--text-muted);
+      padding: 0.36rem 0.85rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.76rem;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+
+    .family-chip:hover {
+      border-color: var(--gold-secondary);
+      color: var(--cream-primary);
+    }
+
+    .family-chip.active {
+      background: var(--gold-dim);
+      border-color: var(--gold-primary);
+      color: var(--gold-light);
+    }
+
+    .results-counter {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .results-counter strong {
+      color: var(--gold-primary);
+      font-weight: 600;
+    }
+
+    /* ==========================================================================
+       7. VITRINE DE PERFUMES (CARDS)
+       ========================================================================== */
+    .perfume-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(295px, 1fr));
+      gap: 1.75rem;
+      padding: 1rem 0 5rem;
+    }
+
+    .perfume-card {
+      background: linear-gradient(165deg, #17171A 0%, #101012 100%);
+      border: 1px solid rgba(212, 175, 55, 0.18);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: var(--transition-smooth);
+      position: relative;
+      cursor: pointer;
+    }
+
+    /* Brilho dourado sutil ao passar o mouse */
+    .perfume-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(500px circle at var(--mouse-x, 50%) var(--mouse-y, 20%), rgba(212, 175, 55, 0.12), transparent 45%);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .perfume-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--gold-border-strong);
+      box-shadow: 0 22px 48px rgba(0, 0, 0, 0.7), 0 0 24px rgba(212, 175, 55, 0.1);
+    }
+
+    .perfume-card:hover::before {
+      opacity: 1;
+    }
+
+    .card-visual {
+      position: relative;
+      height: 255px;
+      background: radial-gradient(circle at 50% 62%, rgba(212, 175, 55, 0.11), rgba(11, 11, 12, 0.92) 72%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.25rem;
+      border-bottom: 1px solid rgba(212, 175, 55, 0.12);
+    }
+
+    .card-collection-tag {
+      position: absolute;
+      top: 0.95rem;
+      left: 0.95rem;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      background: rgba(11, 11, 12, 0.82);
+      border: 1px solid var(--gold-border);
+      padding: 0.28rem 0.65rem;
+      border-radius: 999px;
+      z-index: 2;
+    }
+
+    .card-volume-tag {
+      position: absolute;
+      top: 0.95rem;
+      right: 0.95rem;
+      font-size: 0.68rem;
+      font-weight: 500;
+      color: var(--cream-secondary);
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 0.25rem 0.58rem;
+      border-radius: var(--radius-sm);
+      z-index: 2;
+    }
+
+    .bottle-svg-wrap {
+      width: 150px;
+      height: 205px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+      z-index: 2;
+    }
+
+    .bottle-real-img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      filter: drop-shadow(0 16px 22px rgba(0, 0, 0, 0.75));
+      transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .perfume-card:hover .bottle-svg-wrap {
+      transform: scale(1.06) translateY(-3px);
+    }
+
+    .card-body {
+      padding: 1.4rem 1.45rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      z-index: 2;
+    }
+
+    .card-family {
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold-secondary);
+      margin-bottom: 0.3rem;
+    }
+
+    .card-title {
+      font-family: var(--font-serif);
+      font-size: 1.65rem;
+      font-weight: 600;
+      color: var(--cream-primary);
+      line-height: 1.18;
+      margin-bottom: 0.6rem;
+    }
+
+    .card-notes-preview {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+      margin-bottom: 1rem;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    /* Mini barras de acordes no card */
+    .card-mini-accords {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .mini-accord-pill {
+      font-size: 0.68rem;
+      padding: 0.2rem 0.55rem;
+      border-radius: 4px;
+      font-weight: 500;
+      color: #F5EFE6;
+      background: rgba(255, 255, 255, 0.06);
+      border-left: 3px solid var(--accord-color, var(--gold-primary));
+    }
+
+    .card-footer {
+      margin-top: auto;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+    }
+
+    .card-price {
+      font-family: var(--font-serif);
+      font-size: 1.45rem;
+      font-weight: 600;
+      color: var(--gold-light);
+    }
+
+    .card-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .btn-details {
+      background: transparent;
+      border: 1px solid var(--gold-border);
+      color: var(--cream-primary);
+      padding: 0.52rem 0.85rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.74rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+
+    .btn-details:hover {
+      border-color: var(--gold-primary);
+      color: var(--gold-light);
+      background: var(--gold-dim);
+    }
+
+    .btn-add-icon {
+      background: linear-gradient(135deg, var(--gold-primary), var(--gold-secondary));
+      border: none;
+      color: var(--bg-primary);
+      width: 36px;
+      height: 36px;
+      border-radius: var(--radius-sm);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+      font-weight: 700;
+    }
+
+    .btn-add-icon:hover {
+      transform: scale(1.07);
+      box-shadow: 0 6px 18px rgba(212, 175, 55, 0.35);
+    }
+
+    /* Estado vazio */
+    .empty-state {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 4.5rem 1.5rem;
+      background: var(--bg-secondary);
+      border: 1px dashed var(--gold-border);
+      border-radius: var(--radius-lg);
+    }
+
+    .empty-state h3 {
+      font-family: var(--font-serif);
+      font-size: 1.85rem;
+      color: var(--cream-primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .empty-state p {
+      color: var(--text-muted);
+      margin-bottom: 1.4rem;
+      font-size: 0.9rem;
+    }
+
+    .btn-gold-primary {
+      background: linear-gradient(135deg, var(--gold-primary), var(--gold-secondary));
+      color: var(--bg-primary);
+      border: none;
+      padding: 0.85rem 1.65rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+    }
+
+    .btn-gold-primary:hover {
+      filter: brightness(1.08);
+      box-shadow: 0 10px 28px rgba(212, 175, 55, 0.32);
+      transform: translateY(-1px);
+    }
+
+    /* ==========================================================================
+       8. MODAL DETALHADO ESTILO FRAGRANTICA
+       ========================================================================== */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(5, 5, 6, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      z-index: 1100;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      overflow-y: auto;
+    }
+
+    .modal-backdrop.open {
+      display: flex;
+      animation: fadeIn 0.28s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .fragrantica-modal {
+      background: linear-gradient(160deg, #161619 0%, #0D0D0F 100%);
+      border: 1px solid var(--gold-border-strong);
+      border-radius: var(--radius-lg);
+      max-width: 1040px;
+      width: 100%;
+      max-height: 92vh;
+      overflow-y: auto;
+      position: relative;
+      box-shadow: var(--shadow-luxury);
+      animation: modalScaleUp 0.35s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+
+    @keyframes modalScaleUp {
+      from {
+        opacity: 0;
+        transform: scale(0.96) translateY(14px);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+      }
+    }
+
+    .modal-close {
+      position: sticky;
+      top: 1.1rem;
+      float: right;
+      margin: 1.1rem 1.1rem 0 0;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(20, 20, 22, 0.92);
+      border: 1px solid var(--gold-border);
+      color: var(--cream-primary);
+      font-size: 1.25rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 20;
+      transition: var(--transition-smooth);
+    }
+
+    .modal-close:hover {
+      background: var(--gold-primary);
+      color: var(--bg-primary);
+      transform: rotate(90deg);
+    }
+
+    .modal-content-grid {
+      display: grid;
+      grid-template-columns: 360px 1fr;
+      gap: 2.5rem;
+      padding: 2.25rem 2.5rem 2.75rem;
+      clear: both;
+    }
+
+    /* Coluna Esquerda do Modal: Frasco + Acordes Estilo Fragrantica */
+    .modal-left-col {
+      display: flex;
+      flex-direction: column;
+      gap: 1.75rem;
+    }
+
+    .modal-bottle-stage {
+      background: radial-gradient(circle at 50% 55%, rgba(212, 175, 55, 0.16), rgba(11, 11, 12, 0.96) 74%);
+      border: 1px solid var(--gold-border);
+      border-radius: var(--radius-md);
+      padding: 2rem 1.25rem 1.35rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+    }
+
+    .modal-bottle-svg {
+      width: 200px;
+      height: 270px;
+      filter: drop-shadow(0 22px 26px rgba(0, 0, 0, 0.75));
+    }
+
+    .bottle-caption {
+      margin-top: 0.85rem;
+      font-size: 0.74rem;
+      color: var(--text-muted);
+      text-align: center;
+      font-style: italic;
+      line-height: 1.45;
+    }
+
+    .campaign-ref-badge {
+      margin-top: 0.55rem;
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold-secondary);
+      background: rgba(212, 175, 55, 0.08);
+      border: 1px solid rgba(212, 175, 55, 0.22);
+      padding: 0.25rem 0.65rem;
+      border-radius: 999px;
+    }
+
+    /* Barras de Acordes Principais (Fragrantica Style) */
+    .accords-box {
+      background: var(--bg-secondary);
+      border: 1px solid rgba(212, 175, 55, 0.18);
+      border-radius: var(--radius-md);
+      padding: 1.25rem;
+    }
+
+    .section-mini-title {
+      font-size: 0.74rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold-primary);
+      margin-bottom: 0.95rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .accord-bars-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+    }
+
+    .accord-bar-row {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .accord-bar-fill {
+      height: 29px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 0.85rem;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: #FFFFFF;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.55);
+      transition: width 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    /* Coluna Direita do Modal: Cabeçalho, Pirâmide Olfativa, Personalidade */
+    .modal-right-col {
+      display: flex;
+      flex-direction: column;
+      gap: 1.65rem;
+    }
+
+    .modal-meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .modal-collection-badge {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--bg-primary);
+      background: linear-gradient(135deg, var(--gold-primary), var(--gold-secondary));
+      padding: 0.28rem 0.75rem;
+      border-radius: 999px;
+    }
+
+    .modal-volume-badge {
+      font-size: 0.75rem;
+      color: var(--cream-secondary);
+      border: 1px solid var(--gold-border);
+      padding: 0.24rem 0.7rem;
+      border-radius: 999px;
+    }
+
+    .modal-perfume-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2.1rem, 3.2vw, 2.85rem);
+      font-weight: 600;
+      color: var(--cream-primary);
+      line-height: 1.1;
+    }
+
+    .modal-perfume-family {
+      font-size: 0.9rem;
+      color: var(--gold-light);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-top: 0.25rem;
+    }
+
+    .modal-purchase-bar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      background: rgba(212, 175, 55, 0.06);
+      border: 1px solid var(--gold-border);
+      border-radius: var(--radius-md);
+      padding: 1.1rem 1.35rem;
+    }
+
+    .modal-price-block span {
+      display: block;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--text-muted);
+    }
+
+    .modal-price-value {
+      font-family: var(--font-serif);
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--gold-light);
+      line-height: 1.15;
+    }
+
+    /* Pirâmide Olfativa Visual em 3 Camadas */
+    .pyramid-container {
+      background: var(--bg-secondary);
+      border: 1px solid rgba(212, 175, 55, 0.2);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+    }
+
+    .pyramid-layers {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .pyramid-layer {
+      background: rgba(11, 11, 12, 0.75);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-left: 3px solid var(--gold-primary);
+      border-radius: var(--radius-sm);
+      padding: 1rem 1.15rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      transition: var(--transition-smooth);
+    }
+
+    .pyramid-layer:hover {
+      border-color: var(--gold-border);
+      background: rgba(212, 175, 55, 0.04);
+    }
+
+    .pyramid-layer.top-layer {
+      margin: 0 1.5rem;
+      border-left-color: #E8CF7D;
+    }
+
+    .pyramid-layer.heart-layer {
+      margin: 0 0.75rem;
+      border-left-color: #D4AF37;
+    }
+
+    .pyramid-layer.base-layer {
+      margin: 0;
+      border-left-color: #9A7724;
+    }
+
+    .layer-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: var(--gold-dim);
+      border: 1px solid var(--gold-border);
+      color: var(--gold-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .layer-info h4 {
+      font-size: 0.76rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin-bottom: 0.3rem;
+    }
+
+    .layer-notes-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+    }
+
+    .note-tag {
+      background: rgba(245, 239, 230, 0.06);
+      border: 1px solid rgba(245, 239, 230, 0.14);
+      color: var(--cream-primary);
+      padding: 0.26rem 0.72rem;
+      border-radius: 999px;
+      font-size: 0.82rem;
+    }
+
+    /* Personalidade da Fragrância */
+    .personality-box {
+      background: var(--bg-secondary);
+      border: 1px solid rgba(212, 175, 55, 0.18);
+      border-radius: var(--radius-md);
+      padding: 1.25rem 1.4rem;
+    }
+
+    .personality-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+    }
+
+    .personality-badge {
+      background: linear-gradient(135deg, rgba(212, 175, 55, 0.16), rgba(197, 160, 89, 0.06));
+      border: 1px solid var(--gold-border-strong);
+      color: var(--cream-primary);
+      padding: 0.48rem 1.05rem;
+      border-radius: 999px;
+      font-family: var(--font-serif);
+      font-size: 1.05rem;
+      font-style: italic;
+      letter-spacing: 0.03em;
+    }
+
+    /* ==========================================================================
+       9. ABA 2: NOSSA HISTÓRIA E EXPERIÊNCIA VL
+       ========================================================================== */
+    .story-section {
+      padding: 4rem 0 5.5rem;
+    }
+
+    .story-manifesto {
+      text-align: center;
+      max-width: 860px;
+      margin: 0 auto 4rem;
+      padding: 3rem 2rem;
+      background: linear-gradient(180deg, rgba(20, 20, 22, 0.9), rgba(11, 11, 12, 0.95));
+      border: 1px solid var(--gold-border);
+      border-radius: var(--radius-lg);
+      position: relative;
+    }
+
+    .story-quote {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 3.6vw, 3rem);
+      font-style: italic;
+      color: var(--gold-light);
+      line-height: 1.2;
+      margin-bottom: 1.25rem;
+    }
+
+    .story-lead {
+      color: var(--cream-secondary);
+      font-size: 1.02rem;
+      line-height: 1.85;
+      font-weight: 300;
+      margin-bottom: 1.75rem;
+    }
+
+    .founders-strip {
+      display: inline-flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.65rem 1.25rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid rgba(212, 175, 55, 0.22);
+    }
+
+    .founder-name {
+      font-size: 0.8rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold-primary);
+      font-weight: 600;
+    }
+
+    /* Grid Missão, Visão, Valores */
+    .mvv-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.75rem;
+      margin-bottom: 4.5rem;
+    }
+
+    .luxury-card {
+      background: var(--bg-secondary);
+      border: 1px solid var(--gold-border);
+      border-radius: var(--radius-lg);
+      padding: 2.1rem 1.85rem;
+      transition: var(--transition-smooth);
+    }
+
+    .luxury-card:hover {
+      border-color: var(--gold-border-strong);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-gold);
+    }
+
+    .luxury-card-num {
+      font-family: var(--font-serif);
+      font-size: 1.4rem;
+      color: var(--gold-primary);
+      margin-bottom: 0.6rem;
+      display: block;
+    }
+
+    .luxury-card h3 {
+      font-family: var(--font-serif);
+      font-size: 1.75rem;
+      font-weight: 600;
+      color: var(--cream-primary);
+      margin-bottom: 0.85rem;
+    }
+
+    .luxury-card p {
+      color: var(--cream-secondary);
+      font-size: 0.92rem;
+      line-height: 1.75;
+      font-weight: 300;
+    }
+
+    .values-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.75rem;
+    }
+
+    .value-tag {
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      background: var(--gold-dim);
+      border: 1px solid var(--gold-border);
+      padding: 0.35rem 0.78rem;
+      border-radius: 999px;
+    }
+
+    /* Arquitetura e Lojas Conceito */
+    .subsection-header {
+      margin-bottom: 2rem;
+    }
+
+    .subsection-header h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(1.9rem, 3vw, 2.55rem);
+      color: var(--cream-primary);
+      font-weight: 500;
+    }
+
+    .stores-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+      margin-bottom: 4.5rem;
+    }
+
+    .store-card {
+      background: linear-gradient(155deg, #161619, #0F0F11);
+      border: 1px solid var(--gold-border);
+      border-radius: var(--radius-lg);
+      padding: 2.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .store-badge {
+      align-self: flex-start;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold-primary);
+      border: 1px solid var(--gold-border-strong);
+      padding: 0.3rem 0.85rem;
+      border-radius: 999px;
+    }
+
+    .store-card h3 {
+      font-family: var(--font-serif);
+      font-size: 1.85rem;
+      color: var(--cream-primary);
+    }
+
+    .store-specs {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+      margin-top: 0.4rem;
+    }
+
+    .store-specs li {
+      color: var(--cream-secondary);
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+    }
+
+    .store-specs li::before {
+      content: "◆";
+      color: var(--gold-primary);
+      font-size: 0.65rem;
+    }
+
+    /* Exclusividade & Fidelidade */
+    .vip-banner {
+      background: linear-gradient(135deg, rgba(212, 175, 55, 0.14), rgba(20, 20, 22, 0.96) 55%);
+      border: 1px solid var(--gold-border-strong);
+      border-radius: var(--radius-lg);
+      padding: 2.75rem;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .vip-pillars {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+
+    .vip-pillar-item {
+      background: rgba(11, 11, 12, 0.75);
+      border: 1px solid var(--gold-border);
+      border-radius: var(--radius-md);
+      padding: 1.15rem;
+    }
+
+    .vip-pillar-item h4 {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      color: var(--gold-light);
+      margin-bottom: 0.25rem;
+    }
+
+    .vip-pillar-item p {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* ==========================================================================
+       10. ABA 3: VALENTINO CONCIERGE AI (CHAT 24H)
+       ========================================================================== */
+    .concierge-section {
+      padding: 3rem 0 4.5rem;
+    }
+
+    .concierge-wrapper {
+      max-width: 960px;
+      margin: 0 auto;
+      background: var(--bg-secondary);
+      border: 1px solid var(--gold-border-strong);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-luxury);
+      display: flex;
+      flex-direction: column;
+      height: 76vh;
+      min-height: 600px;
+    }
+
+    .concierge-header {
+      padding: 1.35rem 1.75rem;
+      background: linear-gradient(90deg, #131316, #1A1814);
+      border-bottom: 1px solid var(--gold-border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .concierge-identity {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .concierge-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold-primary), var(--gold-secondary));
+      color: var(--bg-primary);
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+    }
+
+    .concierge-title-block h2 {
+      font-family: var(--font-serif);
+      font-size: 1.45rem;
+      color: var(--cream-primary);
+      line-height: 1.15;
+    }
+
+    .online-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-size: 0.74rem;
+      color: #86EFAC;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-top: 0.2rem;
+    }
+
+    .btn-reset-chat {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      color: var(--text-muted);
+      padding: 0.45rem 0.9rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.74rem;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+
+    .btn-reset-chat:hover {
+      border-color: var(--gold-primary);
+      color: var(--gold-light);
+    }
+
+    .chat-messages {
+      flex: 1;
+      overflow-y: auto;
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.35rem;
+      background:
+        radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.04), transparent 55%),
+        #0D0D0F;
+    }
+
+    .chat-msg {
+      max-width: 84%;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      animation: fadeSlideIn 0.35s ease forwards;
+    }
+
+    .chat-msg.bot {
+      align-self: flex-start;
+    }
+
+    .chat-msg.user {
+      align-self: flex-end;
+    }
+
+    .msg-bubble {
+      padding: 1.05rem 1.3rem;
+      border-radius: 14px;
+      font-size: 0.92rem;
+      line-height: 1.65;
+    }
+
+    .chat-msg.bot .msg-bubble {
+      background: var(--bg-secondary);
+      border: 1px solid var(--gold-border);
+      color: var(--cream-primary);
+      border-bottom-left-radius: 4px;
+    }
+
+    .chat-msg.user .msg-bubble {
+      background: linear-gradient(135deg, var(--gold-primary), var(--gold-secondary));
+      color: var(--bg-primary);
+      font-weight: 500;
+      border-bottom-right-radius: 4px;
+    }
+
+    /* Cards recomendados dentro do Chat */
+    .chat-recommendations {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 0.85rem;
+      margin-top: 0.4rem;
+    }
+
+    .chat-rec-card {
+      background: #16161A;
+      border: 1px solid var(--gold-border);
+      border-radius: var(--radius-md);
+      padding: 0.95rem;
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+
+    .chat-rec-card:hover {
+      border-color: var(--gold-primary);
+      background: #1D1C18;
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-gold);
+    }
+
+    .chat-rec-bottle {
+      width: 52px;
+      height: 72px;
+      flex-shrink: 0;
+    }
+
+    .chat-rec-info h4 {
+      font-family: var(--font-serif);
+      font-size: 1.22rem;
+      color: var(--cream-primary);
+      line-height: 1.15;
+    }
+
+    .chat-rec-info span {
+      display: block;
+      font-size: 0.72rem;
+      color: var(--gold-secondary);
+      margin: 0.2rem 0;
+    }
+
+    .chat-rec-price {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--gold-light);
+    }
+
+    .chat-rec-cta {
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--cream-secondary);
+      text-decoration: underline;
+      margin-top: 0.25rem;
+      display: inline-block;
+    }
+
+    /* Animação digitando */
+    .typing-indicator {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 0.85rem 1.15rem;
+      background: var(--bg-secondary);
+      border: 1px solid var(--gold-border);
+      border-radius: 14px;
+      width: fit-content;
+    }
+
+    .typing-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--gold-primary);
+      animation: typingBounce 1.2s infinite ease-in-out;
+    }
+
+    .typing-dot:nth-child(2) { animation-delay: 0.2s; }
+    .typing-dot:nth-child(3) { animation-delay: 0.4s; }
+
+    @keyframes typingBounce {
+      0%, 80%, 100% { transform: scale(0.65); opacity: 0.4; }
+      40% { transform: scale(1.1); opacity: 1; }
+    }
+
+    /* Chips Rápidos + Input do Chat */
+    .concierge-footer {
+      padding: 1rem 1.5rem 1.35rem;
+      background: #131316;
+      border-top: 1px solid rgba(212, 175, 55, 0.2);
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+
+    .quick-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+    }
+
+    .quick-chip {
+      background: rgba(212, 175, 55, 0.08);
+      border: 1px solid var(--gold-border);
+      color: var(--cream-secondary);
+      padding: 0.38rem 0.85rem;
+      border-radius: 999px;
+      font-size: 0.76rem;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+
+    .quick-chip:hover {
+      background: var(--gold-primary);
+      color: var(--bg-primary);
+      border-color: var(--gold-primary);
+      font-weight: 600;
+    }
+
+    .chat-input-form {
+      display: flex;
+      gap: 0.75rem;
+    }
+
+    .chat-input {
+      flex: 1;
+      background: #0B0B0C;
+      border: 1px solid var(--gold-border);
+      color: var(--cream-primary);
+      padding: 0.85rem 1.2rem;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      outline: none;
+      transition: var(--transition-smooth);
+    }
+
+    .chat-input:focus {
+      border-color: var(--gold-primary);
+      box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.14);
+    }
+
+    .chat-send-btn {
+      background: linear-gradient(135deg, var(--gold-primary), var(--gold-secondary));
+      color: var(--bg-primary);
+      border: none;
+      padding: 0 1.5rem;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+
+    .chat-send-btn:hover {
+      filter: brightness(1.08);
+      box-shadow: 0 6px 20px rgba(212, 175, 55, 0.3);
+    }
+
+    /* ==========================================================================
+       11. SACOLA LATERAL FUNCIONAL (DRAWER) & TOAST
+       ========================================================================== */
+    .drawer-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.72);
+      backdrop-filter: blur(6px);
+      z-index: 1200;
+      display: none;
+    }
+
+    .drawer-overlay.open {
+      display: block;
+    }
+
+    .bag-drawer {
+      position: fixed;
+      top: 0;
+      right: -440px;
+      width: 100%;
+      max-width: 420px;
+      height: 100vh;
+      background: #111113;
+      border-left: 1px solid var(--gold-border-strong);
+      z-index: 1250;
+      display: flex;
+      flex-direction: column;
+      transition: right 0.38s cubic-bezier(0.22, 1, 0.36, 1);
+      box-shadow: -20px 0 60px rgba(0, 0, 0, 0.8);
+    }
+
+    .bag-drawer.open {
+      right: 0;
+    }
+
+    .drawer-header {
+      padding: 1.5rem 1.75rem;
+      border-bottom: 1px solid var(--gold-border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .drawer-header h3 {
+      font-family: var(--font-serif);
+      font-size: 1.65rem;
+      color: var(--cream-primary);
+    }
+
+    .drawer-close {
+      background: none;
+      border: 1px solid var(--gold-border);
+      color: var(--cream-primary);
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1.1rem;
+    }
+
+    .drawer-items {
+      flex: 1;
+      overflow-y: auto;
+      padding: 1.25rem 1.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .bag-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      background: var(--bg-secondary);
+      border: 1px solid rgba(212, 175, 55, 0.16);
+      border-radius: var(--radius-md);
+      padding: 0.85rem;
+    }
+
+    .bag-item-bottle {
+      width: 44px;
+      height: 62px;
+      flex-shrink: 0;
+    }
+
+    .bag-item-details {
+      flex: 1;
+    }
+
+    .bag-item-details h4 {
+      font-family: var(--font-serif);
+      font-size: 1.18rem;
+      color: var(--cream-primary);
+    }
+
+    .bag-item-meta {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+    }
+
+    .bag-item-price {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--gold-light);
+      margin-top: 0.25rem;
+    }
+
+    .qty-controls {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      margin-top: 0.45rem;
+    }
+
+    .qty-btn {
+      width: 24px;
+      height: 24px;
+      border-radius: 4px;
+      background: #0B0B0C;
+      border: 1px solid var(--gold-border);
+      color: var(--cream-primary);
+      cursor: pointer;
+      font-size: 0.85rem;
+    }
+
+    .qty-btn:hover {
+      border-color: var(--gold-primary);
+      color: var(--gold-light);
+    }
+
+    .remove-item-btn {
+      background: none;
+      border: none;
+      color: var(--text-subtle);
+      font-size: 0.75rem;
+      cursor: pointer;
+      margin-left: auto;
+    }
+
+    .remove-item-btn:hover {
+      color: #F87171;
+    }
+
+    .drawer-footer {
+      padding: 1.5rem 1.75rem;
+      border-top: 1px solid var(--gold-border);
+      background: #0D0D0F;
+    }
+
+    .subtotal-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 1rem;
+    }
+
+    .subtotal-row span {
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-muted);
+    }
+
+    .subtotal-row strong {
+      font-family: var(--font-serif);
+      font-size: 1.75rem;
+      color: var(--gold-light);
+    }
+
+    /* Toast de Feedback */
+    .toast-notification {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background: #161619;
+      border: 1px solid var(--gold-primary);
+      color: var(--cream-primary);
+      padding: 0.95rem 1.4rem;
+      border-radius: var(--radius-md);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.75);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      z-index: 1500;
+      transform: translateY(120%);
+      opacity: 0;
+      transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+      font-size: 0.86rem;
+    }
+
+    .toast-notification.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    /* ==========================================================================
+       12. RODAPÉ EDITORIAL
+       ========================================================================== */
+    .footer {
+      border-top: 1px solid var(--gold-border);
+      background: #080809;
+      padding: 2.75rem 0;
+      text-align: center;
+    }
+
+    .footer-tagline {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 1.35rem;
+      color: var(--gold-light);
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-copy {
+      font-size: 0.76rem;
+      color: var(--text-subtle);
+      letter-spacing: 0.1em;
+    }
+
+    /* ==========================================================================
+       13. RESPONSIVIDADE (TABLET & MOBILE)
+       ========================================================================== */
+    @media (max-width: 1024px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+      .modal-content-grid {
+        grid-template-columns: 1fr;
+      }
+      .mvv-grid {
+        grid-template-columns: 1fr;
+      }
+      .stores-grid {
+        grid-template-columns: 1fr;
+      }
+      .vip-banner {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .navbar-inner {
+        padding: 0.75rem 1rem;
+        height: auto;
+        flex-wrap: wrap;
+      }
+      .nav-tabs {
+        order: 3;
+        width: 100%;
+        justify-content: space-between;
+        overflow-x: auto;
+      }
+      .nav-tab {
+        padding: 0.52rem 0.75rem;
+        font-size: 0.72rem;
+        flex: 1;
+        justify-content: center;
+        white-space: nowrap;
+      }
+      .main-wrapper {
+        padding-top: 124px;
+      }
+      .container {
+        padding: 0 1.15rem;
+      }
+      .modal-content-grid {
+        padding: 1.25rem 1.25rem 2rem;
+      }
+      .pyramid-layer.top-layer,
+      .pyramid-layer.heart-layer {
+        margin: 0;
+      }
+      .vip-pillars {
+        grid-template-columns: 1fr;
+      }
+      .concierge-wrapper {
+        height: 80vh;
+      }
+      .chat-msg {
+        max-width: 94%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========================================================================
+       NAVEGAÇÃO SUPERIOR FIXA
+       ======================================================================== -->
+  <header class="navbar">
+    <div class="navbar-inner">
+      <div class="brand-logo" onclick="switchTab('colecao')" role="button" tabindex="0" aria-label="VL Valentino Início">
+        <span class="brand-monogram">VL</span>
+        <span class="brand-divider"></span>
+        <div class="brand-wordmark">
+          <span class="brand-name">VALENTINO</span>
+          <span class="brand-sub">Haute Parfumerie</span>
+        </div>
+      </div>
+
+      <nav class="nav-tabs" aria-label="Navegação Principal">
+        <button class="nav-tab active" data-tab="colecao" onclick="switchTab('colecao')">
+          Coleção
+        </button>
+        <button class="nav-tab" data-tab="historia" onclick="switchTab('historia')">
+          Nossa História
+        </button>
+        <button class="nav-tab" data-tab="concierge" onclick="switchTab('concierge')">
+          <span class="ai-pulse-dot"></span> Consultora IA 24h
+        </button>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="bag-btn" onclick="toggleBag(true)" aria-label="Abrir Sacola">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <path d="M16 10a4 4 0 0 1-8 0"></path>
+          </svg>
+          <span>Sacola</span>
+          <span class="bag-count" id="bagCount">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       CONTEÚDO PRINCIPAL (3 ABAS)
+       ======================================================================== -->
+  <main class="main-wrapper">
+
+    <!-- ======================================================================
+         ABA 1: COLEÇÃO DE PERFUMES (CATÁLOGO + FICHA ESTILO FRAGRANTICA)
+         ====================================================================== -->
+    <section id="tab-colecao" class="tab-view active">
+      <div class="editorial-hero">
+        <div class="container">
+          <div class="hero-grid">
+            <div>
+              <span class="eyebrow">Mais que perfumes, um estilo de vida</span>
+              <h1 class="hero-title">
+                A Arte da Alta Perfumaria <em>VL | Valentino</em>
+              </h1>
+              <p class="hero-desc">
+                Explore nossas 15 criações autorais distribuídas em três coleções exclusivas. Selecione qualquer frasco para revelar seus acordes dominantes, pirâmide olfativa detalhada e assinatura sensorial.
+              </p>
+            </div>
+            <div class="hero-stats-card">
+              <div class="stat-item">
+                <div class="stat-number">03</div>
+                <div class="stat-label">Coleções Autorais</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number">15</div>
+                <div class="stat-label">Fragrâncias Exclusivas</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number">24h</div>
+                <div class="stat-label">Concierge Olfativa</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <!-- Controles de Filtro & Busca -->
+        <div class="catalog-controls">
+          <div class="controls-top-row">
+            <div class="collection-pills" id="collectionFilters">
+              <button class="filter-pill active" data-collection="Todas">Todas (15)</button>
+              <button class="filter-pill" data-collection="VL Perfumes de Luxo">VL Perfumes de Luxo</button>
+              <button class="filter-pill" data-collection="VL Signature">VL Signature</button>
+              <button class="filter-pill" data-collection="VL Brasil">VL Brasil</button>
+            </div>
+
+            <div class="search-box">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+              <input
+                type="text"
+                id="searchInput"
+                class="search-input"
+                placeholder="Buscar por nome ou nota (ex.: oud, baunilha, cacau, rosa)..."
+                aria-label="Buscar perfume"
+              />
+              <button class="clear-search" id="clearSearchBtn" aria-label="Limpar busca">✕</button>
+            </div>
+          </div>
+
+          <div class="controls-bottom-row">
+            <div class="family-filters" id="familyFilters">
+              <span class="family-label">Família Olfativa:</span>
+              <button class="family-chip active" data-family="Todas">Todas</button>
+              <button class="family-chip" data-family="Floral">Floral</button>
+              <button class="family-chip" data-family="Oriental">Oriental</button>
+              <button class="family-chip" data-family="Amadeirado">Amadeirado</button>
+              <button class="family-chip" data-family="Aquático & Cítrico">Aquático & Cítrico</button>
+              <button class="family-chip" data-family="Gourmand & Chypre">Gourmand & Chypre</button>
+            </div>
+
+            <div class="results-counter" id="resultsCounter">
+              Exibindo <strong>15</strong> de 15 fragrâncias
+            </div>
+          </div>
+        </div>
+
+        <!-- Vitrine de Perfumes -->
+        <div class="perfume-grid" id="perfumeGrid"></div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         ABA 2: NOSSA HISTÓRIA E EXPERIÊNCIA VL
+         ====================================================================== -->
+    <section id="tab-historia" class="tab-view">
+      <div class="story-section">
+        <div class="container">
+          <!-- Manifesto & Idealizadores -->
+          <div class="story-manifesto">
+            <span class="eyebrow">Nossa Essência & Legado</span>
+            <h2 class="story-quote">“Mais que perfumes, um estilo de vida.”</h2>
+            <p class="story-lead">
+              A <strong>VL | VALENTINO</strong> nasceu do encontro entre visão artística, rigor olfativo e desejo de democratizar o acesso à verdadeira alta perfumaria. Idealizada por <strong>Lara Dias, Esther Yasmin, Isabella Marques e Gabriel Marçola</strong>, a Maison une matérias-primas nobres, frascos esculturais e hospitalidade impecável para transformar cada borrifada em uma assinatura inesquecível.
+            </p>
+            <div class="founders-strip">
+              <span class="founder-name">Lara Dias</span>
+              <span style="color: var(--gold-border-strong);">•</span>
+              <span class="founder-name">Esther Yasmin</span>
+              <span style="color: var(--gold-border-strong);">•</span>
+              <span class="founder-name">Isabella Marques</span>
+              <span style="color: var(--gold-border-strong);">•</span>
+              <span class="founder-name">Gabriel Marçola</span>
+            </div>
+          </div>
+
+          <!-- Missão, Visão e Valores -->
+          <div class="mvv-grid">
+            <article class="luxury-card">
+              <span class="luxury-card-num">I.</span>
+              <h3>Missão</h3>
+              <p>
+                Oferecer fragrâncias diferenciadas de alta fixação e experiências de compra sofisticadas, pautadas por atendimento personalizado e curadoria olfativa individual.
+              </p>
+            </article>
+
+            <article class="luxury-card">
+              <span class="luxury-card-num">II.</span>
+              <h3>Visão</h3>
+              <p>
+                Tornar-se a marca referência no mercado nacional de perfumaria de luxo, reconhecida pela excelência estética de seus frascos e pela originalidade de suas composições.
+              </p>
+            </article>
+
+            <article class="luxury-card">
+              <span class="luxury-card-num">III.</span>
+              <h3>Valores</h3>
+              <div class="values-tags">
+                <span class="value-tag">Qualidade</span>
+                <span class="value-tag">Sofisticação</span>
+                <span class="value-tag">Exclusividade</span>
+                <span class="value-tag">Comprometimento</span>
+                <span class="value-tag">Inovação</span>
+                <span class="value-tag">Respeito ao Consumidor</span>
+              </div>
+            </article>
+          </div>
+
+          <!-- Arquitetura e Lojas Conceito -->
+          <div class="subsection-header">
+            <span class="eyebrow">Arquitetura Sensorial</span>
+            <h2>Lojas Conceito VL | Valentino</h2>
+          </div>
+
+          <div class="stores-grid">
+            <article class="store-card">
+              <span class="store-badge">Flagship Store • Rua • Até 450 m² • 2 Pavimentos</span>
+              <h3>Maison Valentino Flagship</h3>
+              <p style="color: var(--text-muted); font-size: 0.9rem;">
+                Um santuário arquitetônico projetado para imersão completa no universo olfativo da marca, com privacidade e imponência.
+              </p>
+              <ul class="store-specs">
+                <li>Fachada monumental em vidro temperado e mármore preto absoluto</li>
+                <li>Detalhes arquitetônicos em metal dourado escovado e iluminação cênica</li>
+                <li>Jardins ornamentais integrados ao percurso sensorial</li>
+                <li>Estacionamento privativo com serviço de manobrista dedicado</li>
+              </ul>
+            </article>
+
+            <article class="store-card">
+              <span class="store-badge">Boutique • Shopping Classe A • 300 m² • 2 Pavimentos</span>
+              <h3>Boutique Conceito Shopping</h3>
+              <p style="color: var(--text-muted); font-size: 0.9rem;">
+                Sofisticação contemporânea nos endereços mais prestigiados do país, unindo design editorial e consultoria sob medida.
+              </p>
+              <ul class="store-specs">
+                <li>Lustres de cristal sob medida e escadaria central escultural</li>
+                <li>Vitrines individuais iluminadas para cada coleção e edição limitada</li>
+                <li>Atelier de consultoria especializada com degustação em mouillettes de algodão</li>
+                <li>Lounge privativo no segundo pavimento para clientes convidados</li>
+              </ul>
+            </article>
+          </div>
+
+          <!-- Exclusividade & Fidelidade -->
+          <div class="vip-banner">
+            <div>
+              <span class="eyebrow">Círculo de Prestígio</span>
+              <h2 style="font-family: var(--font-serif); font-size: 2.3rem; margin-bottom: 0.85rem;">
+                Exclusividade & Programa de Fidelidade
+              </h2>
+              <p style="color: var(--cream-secondary); font-size: 0.94rem; line-height: 1.75; margin-bottom: 1.5rem;">
+                Ser cliente VL | Valentino significa pertencer a um universo de privilégios contínuos, lançamentos antecipados e criações reservadas aos membros mais próximos da Maison.
+              </p>
+              <button class="btn-gold-primary" onclick="switchTab('concierge')">
+                Consultar Especialista IA
+              </button>
+            </div>
+
+            <div class="vip-pillars">
+              <div class="vip-pillar-item">
+                <h4>Área VIP</h4>
+                <p>Salas reservadas nas boutiques para atendimento privado e personalização de frascos.</p>
+              </div>
+              <div class="vip-pillar-item">
+                <h4>Valentino Exclusive Club</h4>
+                <p>Convites para soirées de lançamento e experiências sensoriais com perfumistas.</p>
+              </div>
+              <div class="vip-pillar-item">
+                <h4>Linha Especial VL VIP</h4>
+                <p>Edições numeradas de alta concentração com matérias-primas raras.</p>
+              </div>
+              <div class="vip-pillar-item">
+                <h4>VL Rewards</h4>
+                <p>Acúmulo de pontos em cada aquisição, convertidos em miniaturas e mimos exclusivos.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         ABA 3: ASSISTENTE DE IA 24H ("VALENTINO CONCIERGE AI")
+         ====================================================================== -->
+    <section id="tab-concierge" class="tab-view">
+      <div class="concierge-section">
+        <div class="container">
+          <div class="concierge-wrapper">
+            <div class="concierge-header">
+              <div class="concierge-identity">
+                <div class="concierge-avatar">VL</div>
+                <div class="concierge-title-block">
+                  <h2>Valentino Concierge AI</h2>
+                  <div class="online-status">
+                    <span class="ai-pulse-dot"></span> Online 24h • Consultoria Olfativa Personalizada
+                  </div>
+                </div>
+              </div>
+              <button class="btn-reset-chat" onclick="resetChat()">Nova Consulta</button>
+            </div>
+
+            <div class="chat-messages" id="chatMessages"></div>
+
+            <div class="concierge-footer">
+              <div class="quick-chips">
+                <button class="quick-chip" onclick="sendQuickPrompt('Fresco & Dia a Dia')">Fresco &amp; Dia a Dia</button>
+                <button class="quick-chip" onclick="sendQuickPrompt('Intenso & Noturno')">Intenso &amp; Noturno</button>
+                <button class="quick-chip" onclick="sendQuickPrompt('Doce & Envolvente')">Doce &amp; Envolvente</button>
+                <button class="quick-chip" onclick="sendQuickPrompt('Amadeirado Sofisticado')">Amadeirado Sofisticado</button>
+                <button class="quick-chip" onclick="sendQuickPrompt('Floral Romântico')">Floral Romântico</button>
+                <button class="quick-chip" onclick="sendQuickPrompt('Até R$ 300')">Até R$ 300</button>
+              </div>
+
+              <form class="chat-input-form" id="chatForm" onsubmit="handleChatSubmit(event)">
+                <input
+                  type="text"
+                  id="chatInput"
+                  class="chat-input"
+                  placeholder="Descreva seu estilo, nota favorita, ocasião ou faixa de valor..."
+                  autocomplete="off"
+                />
+                <button type="submit" class="chat-send-btn">Enviar</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========================================================================
+       MODAL DETALHADO ESTILO FRAGRANTICA
+       ======================================================================== -->
+  <div class="modal-backdrop" id="perfumeModalBackdrop" onclick="handleBackdropClick(event)">
+    <div class="fragrantica-modal" role="dialog" aria-modal="true" aria-labelledby="modalPerfumeTitle">
+      <button class="modal-close" onclick="closePerfumeModal()" aria-label="Fechar ficha olfativa">✕</button>
+      <div class="modal-content-grid" id="modalBody"></div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       SACOLA LATERAL (DRAWER)
+       ======================================================================== -->
+  <div class="drawer-overlay" id="drawerOverlay" onclick="toggleBag(false)"></div>
+  <aside class="bag-drawer" id="bagDrawer" aria-label="Sacola de Compras">
+    <div class="drawer-header">
+      <h3>Sua Sacola VL</h3>
+      <button class="drawer-close" onclick="toggleBag(false)" aria-label="Fechar sacola">✕</button>
+    </div>
+    <div class="drawer-items" id="bagItemsContainer"></div>
+    <div class="drawer-footer">
+      <div class="subtotal-row">
+        <span>Subtotal</span>
+        <strong id="bagSubtotal">R$ 0,00</strong>
+      </div>
+      <button class="btn-gold-primary" style="width: 100%;" onclick="checkoutBag()">
+        Finalizar Pedido Exclusivo
+      </button>
+    </div>
+  </aside>
+
+  <!-- Toast de Feedback -->
+  <div class="toast-notification" id="toastNotification">
+    <span style="color: var(--gold-primary); font-size: 1.1rem;">✦</span>
+    <span id="toastMessage">Fragrância adicionada à sua sacola.</span>
+  </div>
+
+  <!-- ========================================================================
+       RODAPÉ
+       ======================================================================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-tagline">VL | VALENTINO — Mais que perfumes, um estilo de vida</div>
+      <div class="footer-copy">
+        © 2026 VL | VALENTINO HAUTE PARFUMERIE • TODOS OS DIREITOS RESERVADOS
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================================================================
+       JAVASCRIPT INTEGRADO: CATÁLOGO, IMAGENS/SVG DOS 15 FRASCOS, FRAGRANTICA MODAL,
+       SACOLA E MOTOR DE INTELIGÊNCIA ARTIFICIAL 24H
+       ======================================================================== -->
+  <script>
+    /* ========================================================================
+       1. BASE DE DADOS OFICIAL DOS 15 PERFUMES (ASSOCIADOS AOS FRASCOS DAS CAMPANHAS)
+       ======================================================================== */
+    const PERFUMES = [
+      // ---------------- COLEÇÃO 1: VL PERFUMES DE LUXO (500 ml) ----------------
+      {
+        id: 1,
+        name: "VL Rose Élégance",
+        collection: "VL Perfumes de Luxo",
+        volume: "500 ml",
+        price: 249.90,
+        family: "Floral Frutado",
+        familyCategory: "Floral",
+        topNotes: ["Lichia", "Bergamota", "Pera"],
+        heartNotes: ["Rosa búlgara", "Peônia", "Jasmim"],
+        baseNotes: ["Musk branco", "Âmbar", "Cedro"],
+        personality: ["Delicado", "Romântico", "Sofisticado"],
+        bottleDesc: "Cristal lapidado minimalista com detalhes dourados",
+        campaignRef: "Campanha Feminina • Frasco Cristal Lapidado Rosé (Esquerda)",
+        bottleStyle: "crystal-rose",
+        accords: [
+          { name: "Floral", strength: 96, color: "#C86D8A" },
+          { name: "Rosado", strength: 88, color: "#D9829B" },
+          { name: "Frutado", strength: 76, color: "#B85D78" },
+          { name: "Almiscarado", strength: 64, color: "#8E7E8B" },
+          { name: "Cítrico Fresco", strength: 52, color: "#C5A059" }
+        ],
+        keywords: ["feminino", "dia", "primavera", "romance", "encontro", "leve", "elegante", "presente", "casamento"]
+      },
+      {
+        id: 2,
+        name: "VL Bloom Royale",
+        collection: "VL Perfumes de Luxo",
+        volume: "500 ml",
+        price: 289.90,
+        family: "Floral Gourmand",
+        familyCategory: "Floral",
+        topNotes: ["Mandarina", "Pêssego", "Framboesa"],
+        heartNotes: ["Flor de laranjeira", "Rosa", "Tuberosa"],
+        baseNotes: ["Baunilha", "Praliné", "Sândalo"],
+        personality: ["Feminino", "Marcante", "Envolvente"],
+        bottleDesc: "Esférico rosé com tampa escultural em formato de flor",
+        campaignRef: "Campanha Feminina • Frasco Esférico com Tampa Flor Esculpida",
+        bottleStyle: "flower-sphere",
+        accords: [
+          { name: "Floral Branco", strength: 94, color: "#D48C9E" },
+          { name: "Doce / Praliné", strength: 86, color: "#B56A57" },
+          { name: "Baunilha", strength: 78, color: "#C89B54" },
+          { name: "Frutado", strength: 68, color: "#C76B7A" },
+          { name: "Amadeirado Suave", strength: 50, color: "#8C694A" }
+        ],
+        keywords: ["feminino", "doce", "noite", "jantar", "romântico", "baunilha", "envolvente", "marcante", "festa"]
+      },
+      {
+        id: 3,
+        name: "VL Golden Essence",
+        collection: "VL Perfumes de Luxo",
+        volume: "500 ml",
+        price: 329.90,
+        family: "Oriental Amadeirado",
+        familyCategory: "Oriental",
+        topNotes: ["Açafrão", "Bergamota", "Pimenta rosa"],
+        heartNotes: ["Jasmim", "Âmbar", "Canela"],
+        baseNotes: ["Oud", "Baunilha", "Patchouli", "Sândalo"],
+        personality: ["Intenso", "Luxuoso", "Inesquecível"],
+        bottleDesc: "Lapidado âmbar-dourado com tampa marmorizada clara",
+        campaignRef: "Campanha Feminina • Frasco Central Lapidado Âmbar-Dourado",
+        bottleStyle: "golden-prism",
+        accords: [
+          { name: "Âmbar", strength: 96, color: "#B87A2E" },
+          { name: "Oud & Madeiras", strength: 88, color: "#6E4726" },
+          { name: "Especiado Quente", strength: 79, color: "#9C4A2B" },
+          { name: "Baunilha", strength: 68, color: "#C5A059" },
+          { name: "Floral Dourado", strength: 54, color: "#AD8642" }
+        ],
+        keywords: ["noite", "festa", "gala", "inverno", "luxo", "intenso", "oud", "baunilha", "opulento", "compartilhável"]
+      },
+      {
+        id: 4,
+        name: "VL Pink Signature",
+        collection: "VL Perfumes de Luxo",
+        volume: "500 ml",
+        price: 269.90,
+        family: "Floral Almiscarado",
+        familyCategory: "Floral",
+        topNotes: ["Bergamota", "Pera", "Mandarina"],
+        heartNotes: ["Magnólia", "Íris", "Jasmim"],
+        baseNotes: ["Musk", "Âmbar branco", "Baunilha suave"],
+        personality: ["Elegante", "Moderno", "Delicado"],
+        bottleDesc: "Retangular rosado translúcido com acabamento dourado",
+        campaignRef: "Campanha Feminina • Frasco Retangular Rosado (Superior Direito)",
+        bottleStyle: "pink-rect",
+        accords: [
+          { name: "Floral Limpo", strength: 92, color: "#C98598" },
+          { name: "Almiscarado", strength: 85, color: "#8C7D8A" },
+          { name: "Atalcado / Íris", strength: 72, color: "#9B879E" },
+          { name: "Cítrico", strength: 62, color: "#C5A059" },
+          { name: "Baunilha Suave", strength: 50, color: "#B3936D" }
+        ],
+        keywords: ["feminino", "dia", "trabalho", "escritório", "elegante", "delicado", "moderno", "limpo", "presente"]
+      },
+      {
+        id: 5,
+        name: "VL Pearl Divine",
+        collection: "VL Perfumes de Luxo",
+        volume: "500 ml",
+        price: 319.90,
+        family: "Oriental Floral Atalcado",
+        familyCategory: "Oriental",
+        topNotes: ["Mandarina", "Flor de algodão", "Néroli"],
+        heartNotes: ["Íris", "Violeta", "Flor de laranjeira"],
+        baseNotes: ["Baunilha", "Musk", "Âmbar", "Almíscar"],
+        personality: ["Sofisticado", "Confortável", "Exclusivo"],
+        bottleDesc: "Arredondado perolado com tampa em pérola e aro dourado",
+        campaignRef: "Campanha Feminina • Frasco Perolado com Tampa Pérola (Direita)",
+        bottleStyle: "pearl-globe",
+        accords: [
+          { name: "Atalcado", strength: 95, color: "#A89689" },
+          { name: "Almiscarado", strength: 87, color: "#8E8279" },
+          { name: "Floral Cremoso", strength: 76, color: "#C29C84" },
+          { name: "Baunilha", strength: 69, color: "#C5A059" },
+          { name: "Âmbar Branco", strength: 55, color: "#9C8468" }
+        ],
+        keywords: ["feminino", "confortável", "atalcado", "baunilha", "sofisticado", "dia", "noite", "exclusivo", "elegante"]
+      },
+
+      // ---------------- COLEÇÃO 2: VL SIGNATURE (100 ml) ----------------
+      {
+        id: 6,
+        name: "Oceanic",
+        collection: "VL Signature",
+        volume: "100 ml",
+        price: 299.90,
+        family: "Aquático Fresco",
+        familyCategory: "Aquático & Cítrico",
+        topNotes: ["Acorde marinho", "Bergamota", "Néroli"],
+        heartNotes: ["Sal marinho", "Alecrim", "Lavanda"],
+        baseNotes: ["Âmbar cinzento", "Cedro", "Musk"],
+        personality: ["Refrescante", "Revigorante", "Livre"],
+        bottleDesc: "Azul-marinho profundo lapidado com detalhes em ouro",
+        campaignRef: "Campanha Signature • Frasco Azul-Marinho Lapidado (1º à Esquerda)",
+        bottleStyle: "sig-oceanic",
+        accords: [
+          { name: "Aquático / Marinho", strength: 96, color: "#1E5B8A" },
+          { name: "Aromático", strength: 84, color: "#367588" },
+          { name: "Cítrico", strength: 78, color: "#4B8B9E" },
+          { name: "Salgado / Mineral", strength: 66, color: "#5E7B8C" },
+          { name: "Amadeirado Limpo", strength: 52, color: "#786C5E" }
+        ],
+        keywords: ["masculino", "fresco", "calor", "verão", "dia", "praia", "trabalho", "esporte", "refrescante", "marinho"]
+      },
+      {
+        id: 7,
+        name: "Forest",
+        collection: "VL Signature",
+        volume: "100 ml",
+        price: 329.90,
+        family: "Amadeirado Verde",
+        familyCategory: "Amadeirado",
+        topNotes: ["Agulhas de pinho", "Eucalipto", "Toranja"],
+        heartNotes: ["Folhas de violeta", "Fava tonka", "Sálvia"],
+        baseNotes: ["Musgo de carvalho", "Vetiver", "Patchouli"],
+        personality: ["Terroso", "Sereno", "Imersivo"],
+        bottleDesc: "Verde-esmeralda fosco com tampa marmorizada verde",
+        campaignRef: "Campanha Signature • Frasco Verde-Esmeralda Fosco (2º à Esquerda)",
+        bottleStyle: "sig-forest",
+        accords: [
+          { name: "Amadeirado", strength: 94, color: "#3D5E45" },
+          { name: "Verde / Herbal", strength: 88, color: "#4D7A56" },
+          { name: "Terroso / Musgo", strength: 77, color: "#556347" },
+          { name: "Aromático", strength: 65, color: "#688263" },
+          { name: "Cítrico Fresco", strength: 48, color: "#8C9B6E" }
+        ],
+        keywords: ["masculino", "amadeirado", "verde", "natureza", "dia", "sereno", "vetiver", "outono", "elegante"]
+      },
+      {
+        id: 8,
+        name: "Amber",
+        collection: "VL Signature",
+        volume: "100 ml",
+        price: 369.90,
+        family: "Oriental Âmbar",
+        familyCategory: "Oriental",
+        topNotes: ["Bergamota", "Especiarias", "Cardamomo"],
+        heartNotes: ["Âmbar quente", "Canela", "Mirra"],
+        baseNotes: ["Baunilha", "Incenso", "Benjoim"],
+        personality: ["Aconchegante", "Sensual", "Opulento"],
+        bottleDesc: "Cristal âmbar facetado com tampa em pedra clara",
+        campaignRef: "Campanha Signature • Frasco Central Cristal Âmbar Facetado",
+        bottleStyle: "sig-amber",
+        accords: [
+          { name: "Âmbar Resinoso", strength: 97, color: "#B35D2E" },
+          { name: "Especiado Quente", strength: 86, color: "#9C4226" },
+          { name: "Balsâmico / Incenso", strength: 78, color: "#7D4832" },
+          { name: "Baunilha", strength: 71, color: "#C58F45" },
+          { name: "Amadeirado", strength: 54, color: "#6B442A" }
+        ],
+        keywords: ["masculino", "compartilhável", "noite", "inverno", "frio", "âmbar", "baunilha", "canela", "sensual", "jantar"]
+      },
+      {
+        id: 9,
+        name: "Vetiver",
+        collection: "VL Signature",
+        volume: "100 ml",
+        price: 349.90,
+        family: "Amadeirado Aromático",
+        familyCategory: "Amadeirado",
+        topNotes: ["Bergamota cítrica", "Pimenta preta"],
+        heartNotes: ["Vetiver do Haiti", "Gerânio"],
+        baseNotes: ["Madeira de guaiaco", "Cedro", "Couro"],
+        personality: ["Marcante", "Clássico", "Sofisticado"],
+        bottleDesc: "Vidro canelado em tom grafite-violáceo com detalhes metálicos",
+        campaignRef: "Campanha Signature • Frasco Canelado Grafite-Violáceo (4º da Esquerda)",
+        bottleStyle: "sig-vetiver",
+        accords: [
+          { name: "Amadeirado Seco", strength: 95, color: "#584E68" },
+          { name: "Aromático", strength: 84, color: "#6D6280" },
+          { name: "Terroso / Vetiver", strength: 79, color: "#5E5A4F" },
+          { name: "Especiado Fresco", strength: 67, color: "#7B7485" },
+          { name: "Couro Nobre", strength: 56, color: "#4D3B36" }
+        ],
+        keywords: ["masculino", "clássico", "trabalho", "escritório", "reunião", "vetiver", "couro", "sofisticado", "elegante"]
+      },
+      {
+        id: 10,
+        name: "Urban",
+        collection: "VL Signature",
+        volume: "100 ml",
+        price: 319.90,
+        family: "Urbano Moderno",
+        familyCategory: "Amadeirado",
+        topNotes: ["Maçã verde", "Lavanda", "Cardamomo"],
+        heartNotes: ["Noz-moscada", "Pimenta rosa", "Íris"],
+        baseNotes: ["Couro urbano", "Âmbar", "Sândalo"],
+        personality: ["Cosmopolita", "Dinâmico", "Elegante"],
+        bottleDesc: "Retangular fumê-esverdeado com tampa metálica minimalista",
+        campaignRef: "Campanha Signature • Frasco Retangular Fumê-Esverdeado (Direita)",
+        bottleStyle: "sig-urban",
+        accords: [
+          { name: "Aromático Moderno", strength: 92, color: "#2D5E63" },
+          { name: "Especiado Suave", strength: 82, color: "#476F73" },
+          { name: "Amadeirado", strength: 75, color: "#5B6659" },
+          { name: "Couro Urbano", strength: 64, color: "#3B4247" },
+          { name: "Frutado Fresco", strength: 52, color: "#5D8772" }
+        ],
+        keywords: ["masculino", "dia", "noite", "versátil", "trabalho", "urbano", "moderno", "couro", "dinâmico"]
+      },
+
+      // ---------------- COLEÇÃO 3: VL BRASIL (100 ml) ----------------
+      {
+        id: 11,
+        name: "Terra",
+        collection: "VL Brasil",
+        volume: "100 ml",
+        price: 349.90,
+        family: "Amadeirado Quente",
+        familyCategory: "Amadeirado",
+        topNotes: ["Laranja de Pera", "Especiarias secas"],
+        heartNotes: ["Jacarandá", "Folha de tabaco"],
+        baseNotes: ["Terra molhada", "Raízes", "Cedro"],
+        personality: ["Autêntico", "Robusto", "Marcante"],
+        bottleDesc: "Âmbar terroso robusto com tampa em madeira nobre",
+        campaignRef: "Campanha VL Brasil • Frasco Central Âmbar Terroso com Tampa Madeira",
+        bottleStyle: "br-terra",
+        accords: [
+          { name: "Amadeirado Nobre", strength: 96, color: "#7C4722" },
+          { name: "Terroso / Raízes", strength: 88, color: "#5E3A20" },
+          { name: "Tabaco & Especiarias", strength: 78, color: "#8C4E27" },
+          { name: "Âmbar Quente", strength: 64, color: "#A8662E" },
+          { name: "Cítrico Rústico", strength: 48, color: "#B87B35" }
+        ],
+        keywords: ["masculino", "brasil", "amadeirado", "tabaco", "autêntico", "robusto", "marcante", "outono", "inverno"]
+      },
+      {
+        id: 12,
+        name: "Atlantic",
+        collection: "VL Brasil",
+        volume: "100 ml",
+        price: 319.90,
+        family: "Cítrico Aquático",
+        familyCategory: "Aquático & Cítrico",
+        topNotes: ["Lima da Pérsia", "Brisa marinha"],
+        heartNotes: ["Flor de maracujá", "Capim-limão"],
+        baseNotes: ["Âmbar aquático", "Madeiras claras"],
+        personality: ["Ensolarado", "Vibrante", "Fresco"],
+        bottleDesc: "Azul-turquesa cristalino com detalhes dourados",
+        campaignRef: "Campanha VL Brasil • Frasco Azul Cristalino Octogonal (Superior Esquerdo)",
+        bottleStyle: "br-atlantic",
+        accords: [
+          { name: "Cítrico Tropical", strength: 95, color: "#256D85" },
+          { name: "Aquático / Brisa", strength: 87, color: "#1E5170" },
+          { name: "Herbal Fresco", strength: 74, color: "#3B7A6B" },
+          { name: "Floral Solar", strength: 60, color: "#588C8E" },
+          { name: "Amadeirado Claro", strength: 48, color: "#7A7462" }
+        ],
+        keywords: ["compartilhável", "masculino", "feminino", "brasil", "calor", "verão", "dia", "fresco", "cítrico", "praia", "vibrante"]
+      },
+      {
+        id: 13,
+        name: "Imperial",
+        collection: "VL Brasil",
+        volume: "100 ml",
+        price: 389.90,
+        family: "Chypre Elegante",
+        familyCategory: "Gourmand & Chypre",
+        topNotes: ["Mandarina", "Pimenta rosa"],
+        heartNotes: ["Orquídea negra", "Jasmim imperial"],
+        baseNotes: ["Patchouli", "Fava tonka", "Sândalo"],
+        personality: ["Nobre", "Imponente", "Majestoso"],
+        bottleDesc: "Preto ônix com placa dourada em relevo",
+        campaignRef: "Campanha VL Brasil • Frasco Verde-Esmeralda Imperial & Ouro (Frontal Esquerdo)",
+        bottleStyle: "br-imperial",
+        accords: [
+          { name: "Chypre Nobre", strength: 95, color: "#234D36" },
+          { name: "Amadeirado / Patchouli", strength: 86, color: "#36593E" },
+          { name: "Floral Exótico", strength: 77, color: "#5E6B42" },
+          { name: "Especiado Dourado", strength: 65, color: "#A68232" },
+          { name: "Balsâmico Tonka", strength: 54, color: "#6E5532" }
+        ],
+        keywords: ["compartilhável", "brasil", "nobre", "imponente", "noite", "evento", "festa", "sofisticado", "elegante", "jasmim"]
+      },
+      {
+        id: 14,
+        name: "Noir",
+        collection: "VL Brasil",
+        volume: "100 ml",
+        price: 379.90,
+        family: "Amadeirado Intenso",
+        familyCategory: "Amadeirado",
+        topNotes: ["Cacau amargo", "Pimenta preta"],
+        heartNotes: ["Café torrado", "Resina de jatobá"],
+        baseNotes: ["Baunilha negra", "Couro", "Âmbar"],
+        personality: ["Misterioso", "Noturno", "Denso"],
+        bottleDesc: "Preto fumê monolítico com detalhes em ouro escuro",
+        campaignRef: "Campanha VL Brasil • Frasco Preto Fumê Octogonal (Superior Direito)",
+        bottleStyle: "br-noir",
+        accords: [
+          { name: "Café & Cacau Amargo", strength: 96, color: "#2E2623" },
+          { name: "Amadeirado Intenso", strength: 89, color: "#3E3430" },
+          { name: "Couro Escuro", strength: 80, color: "#4A3931" },
+          { name: "Âmbar Resinoso", strength: 70, color: "#734B2C" },
+          { name: "Baunilha Negra", strength: 60, color: "#8C6838" }
+        ],
+        keywords: ["masculino", "noite", "balada", "inverno", "frio", "café", "cacau", "couro", "intenso", "misterioso", "noturno"]
+      },
+      {
+        id: 15,
+        name: "Cacau",
+        collection: "VL Brasil",
+        volume: "100 ml",
+        price: 399.90,
+        family: "Gourmand Nobre",
+        familyCategory: "Gourmand & Chypre",
+        topNotes: ["Flor de laranjeira", "Noz-moscada"],
+        heartNotes: ["Nibs de cacau", "Avelã", "Fava tonka"],
+        baseNotes: ["Baunilha de Madagascar", "Madeira aveludada"],
+        personality: ["Envolvente", "Cremoso", "Irresistível"],
+        bottleDesc: "Marrom-cacau lapidado com tampa dourada escovada",
+        campaignRef: "Campanha VL Brasil • Frasco Marrom-Cacau Lapidado (Inferior Direito)",
+        bottleStyle: "br-cacau",
+        accords: [
+          { name: "Cacau Nobre", strength: 98, color: "#5C3522" },
+          { name: "Gourmand / Avelã", strength: 90, color: "#7A472B" },
+          { name: "Baunilha Cremosa", strength: 84, color: "#B58143" },
+          { name: "Amadeirado Aveludado", strength: 68, color: "#63422D" },
+          { name: "Especiado Doce", strength: 54, color: "#8C5934" }
+        ],
+        keywords: ["compartilhável", "feminino", "masculino", "doce", "cacau", "avelã", "baunilha", "noite", "inverno", "encontro", "cremoso", "envolvente"]
+      }
+    ];
+
+    /* ========================================================================
+       2. RENDERIZADOR DE IMAGENS REAIS (PASTA Images/) + FALLBACK SVG DOS 15 FRASCOS
+       ======================================================================== */
+    function renderBottleSVG(perfume, sizeClass = "") {
+      return `
+        <img
+          src="Images/${perfume.bottleStyle}.png"
+          alt="${perfume.name} - VL | Valentino"
+          class="bottle-real-img ${sizeClass}"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+        />
+        <div style="display:none; width:100%; height:100%; align-items:center; justify-content:center;">
+          ${renderFallbackSVG(perfume, sizeClass)}
+        </div>
+      `;
+    }
+
+    function renderFallbackSVG(perfume, sizeClass = "") {
+      const uid = `b-${perfume.id}-${Math.random().toString(36).slice(2, 6)}`;
+
+      const designs = {
+        "crystal-rose": `
+          <svg class="${sizeClass}" viewBox="0 0 180 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="liq-${uid}" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#F6D5D9" stop-opacity="0.92"/>
+                <stop offset="50%" stop-color="#E5B0B8" stop-opacity="0.88"/>
+                <stop offset="100%" stop-color="#C88B95" stop-opacity="0.95"/>
+              </linearGradient>
+              <linearGradient id="gold-${uid}" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#B08A3E"/>
+                <stop offset="50%" stop-color="#F2DC91"/>
+                <stop offset="100%" stop-color="#A88235"/>
+              </linearGradient>
+            </defs>
+            <rect x="65" y="18" width="50" height="28" rx="4" fill="rgba(255,255,255,0.22)" stroke="rgba(255,255,255,0.65)" stroke-width="1.3"/>
+            <rect x="73" y="22" width="34" height="20" rx="2" fill="rgba(255,255,255,0.14)"/>
+            <rect x="74" y="46" width="32" height="14" rx="2" fill="url(#gold-${uid})"/>
+            <rect x="70" y="56" width="40" height="5" rx="2" fill="url(#gold-${uid})"/>
+            <rect x="42" y="61" width="96" height="156" rx="8" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.55)" stroke-width="1.4"/>
+            <rect x="48" y="68" width="84" height="140" rx="5" fill="url(#liq-${uid})"/>
+            <line x1="62" y1="68" x2="62" y2="208" stroke="rgba(255,255,255,0.35)" stroke-width="1.2"/>
+            <line x1="76" y1="68" x2="76" y2="208" stroke="rgba(255,255,255,0.25)" stroke-width="1"/>
+            <line x1="104" y1="68" x2="104" y2="208" stroke="rgba(255,255,255,0.25)" stroke-width="1"/>
+            <line x1="118" y1="68" x2="118" y2="208" stroke="rgba(255,255,255,0.35)" stroke-width="1.2"/>
+            <text x="90" y="136" text-anchor="middle" fill="#6E473B" font-family="Cormorant Garamond, serif" font-size="22" font-weight="700" letter-spacing="1">VL</text>
+            <text x="90" y="149" text-anchor="middle" fill="#6E473B" font-family="Plus Jakarta Sans, sans-serif" font-size="6.5" letter-spacing="2.4">VALENTINO</text>
+          </svg>`,
+
+        "flower-sphere": `
+          <svg class="${sizeClass}" viewBox="0 0 180 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <radialGradient id="liq-${uid}" cx="42%" cy="38%" r="62%">
+                <stop offset="0%" stop-color="#FCE3E6"/>
+                <stop offset="55%" stop-color="#E7B3BC"/>
+                <stop offset="100%" stop-color="#C4838F"/>
+              </radialGradient>
+              <linearGradient id="gold-${uid}" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#AA8438"/>
+                <stop offset="50%" stop-color="#F5DF96"/>
+                <stop offset="100%" stop-color="#9E782E"/>
+              </linearGradient>
+            </defs>
+            <path d="M54 34 C50 18, 72 12, 90 16 C108 12, 130 18, 126 34 C132 42, 118 52, 90 52 C62 52, 48 42, 54 34 Z" fill="#F8F3EC" stroke="#DFD5C7" stroke-width="1.2"/>
+            <path d="M68 24 C78 14, 102 14, 112 24 C104 34, 76 34, 68 24 Z" fill="#EFE7DC"/>
+            <rect x="74" y="52" width="32" height="12" rx="3" fill="url(#gold-${uid})"/>
+            <circle cx="90" cy="138" r="74" fill="rgba(255,255,255,0.16)" stroke="rgba(255,255,255,0.55)" stroke-width="1.4"/>
+            <circle cx="90" cy="138" r="67" fill="url(#liq-${uid})"/>
+            <ellipse cx="66" cy="108" rx="14" ry="26" transform="rotate(-24 66 108)" fill="rgba(255,255,255,0.28)"/>
+            <text x="90" y="138" text-anchor="middle" fill="#6D4438" font-family="Cormorant Garamond, serif" font-size="22" font-weight="700">VL</text>
+            <text x="90" y="151" text-anchor="middle" fill="#6D4438" font-family="Plus Jakarta Sans, sans-serif" font-size="6.5" letter-spacing="2.4">VALENTINO</text>
+          </svg>`,
+
+        "golden-prism": `
+          <svg class="${sizeClass}" viewBox="0 0 180 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="liq-${uid}" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#F7E5B4"/>
+                <stop offset="50%" stop-color="#DFC07A"/>
+                <stop offset="100%" stop-color="#B68E40"/>
+              </linearGradient>
+              <linearGradient id="gold-${uid}" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#A67E2E"/>
+                <stop offset="50%" stop-color="#F6E199"/>
+                <stop offset="100%" stop-color="#9A7225"/>
+              </linearGradient>
+            </defs>
+            <polygon points="72,14 108,14 114,44 66,44" fill="url(#gold-${uid})" stroke="#F5E6B3" stroke-width="1"/>
+            <rect x="74" y="44" width="32" height="14" fill="url(#gold-${uid})"/>
+            <polygon points="52,58 128,58 140,80 134,206 118,220 62,220 46,206 40,80" fill="rgba(255,255,255,0.16)" stroke="#E6CE8A" stroke-width="1.4"/>
+            <polygon points="57,65 123,65 133,83 128,201 114,213 66,213 52,201 47,83" fill="url(#liq-${uid})"/>
+            <polyline points="57,65 90,115 123,65" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
+            <polyline points="52,201 90,165 128,201" stroke="rgba(255,255,255,0.35)" stroke-width="1"/>
+            <text x="90" y="142" text-anchor="middle" fill="#593F16" font-family="Cormorant Garamond, serif" font-size="23" font-weight="700">VL</text>
+            <text x="90" y="155" text-anchor="middle" fill="#593F16" font-family="Plus Jakarta Sans, sans-serif" font-size="6.5" letter-spacing="2.4">VALENTINO</text>
+          </svg>`,
+
+        "pink-rect": `
+          <svg class="${sizeClass}" viewBox="0 0 180 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="liq-${uid}" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#F4CFD4"/>
+                <stop offset="60%" stop-color="#DDA2AC"/>
+                <stop offset="100%" stop-color="#C4828E"/>
+              </linearGradient>
+              <linearGradient id="gold-${uid}" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#B28B3E"/>
+                <stop offset="50%" stop-color="#F4DF95"/>
+                <stop offset="100%" stop-color="#9E772E"/>
+              </linearGradient>
+            </defs>
+            <rect x="64" y="20" width="52" height="26" rx="3" fill="#E8C2C6" stroke="url(#gold-${uid})" stroke-width="1.3"/>
+            <rect x="75" y="46" width="30" height="14" fill="url(#gold-${uid})"/>
+            <rect x="46" y="60" width="88" height="156" rx="4" fill="rgba(255,255,255,0.14)" stroke="rgba(255,255,255,0.55)" stroke-width="1.3"/>
+            <rect x="52" y="67" width="76" height="141" rx="2" fill="url(#liq-${uid})"/>
+            <rect x="56" y="72" width="10" height="130" fill="rgba(255,255,255,0.22)"/>
+            <text x="90" y="135" text-anchor="middle" fill="#663E36" font-family="Cormorant Garamond, serif" font-size="22" font-weight="700">VL</text>
+            <text x="90" y="148" text-anchor="middle" fill="#663E36" font-family="Plus Jakarta Sans, sans-serif" font-size="6.5" letter-spacing="2.4">VALENTINO</text>
+          </svg>`,
+
+        "pearl-globe": `
+          <svg class="${sizeClass}" viewBox="0 0 180 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <radialGradient id="liq-${uid}" cx="38%" cy="35%" r="65%">
+                <stop offset="0%" stop-color="#FFFFFF"/>
+                <stop offset="55%" stop-color="#F1E8DC"/>
+                <stop offset="100%" stop-color="#D7C7B2"/>
+              </radialGradient>
+              <radialGradient id="cap-${uid}" cx="35%" cy="30%" r="65%">
+                <stop offset="0%" stop-color="#FFFFFF"/>
+                <stop offset="70%" stop-color="#EAE0D3"/>
+                <stop offset="100%" stop-color="#C8B9A6"/>
+              </radialGradient>
+              <linearGradient id="gold-${uid}" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#B08A3E"/>
+                <stop offset="50%" stop-color="#F5E096"/>
+                <stop offset="100%" stop-color="#9E782E"/>
+              </linearGradient>
+            </defs>
+            <circle cx="90" cy="36" r="23" fill="url(#cap-${uid})" stroke="#D6C8B6" stroke-width="1.2"/>
+            <path d="M74 30 Q90 22 106 34" stroke="#D2C2AE" stroke-width="1" opacity="0.7"/>
+            <rect x="74" y="58" width="32" height="11" rx="2" fill="url(#gold-${uid})"/>
+            <rect x="26" y="69" width="128" height="146" rx="64" fill="url(#liq-${uid})" stroke="#E5D9C8" stroke-width="1.5"/>
+            <ellipse cx="62" cy="112" rx="15" ry="30" transform="rotate(-20 62 112)" fill="rgba(255,255,255,0.45)"/>
+            <text x="90" y="142" text-anchor="middle" fill="#6E583A" font-family="Cormorant Garamond, serif" font-size="22" font-weight="700">VL</text>
+            <text x="90" y="155" text-anchor="middle" fill="#6E583A" font-family="Plus Jakarta Sans, sans-serif" font-size="6.5" letter-spacing="2.4">VALENTINO</text>
+          </svg>`,
+
+        "sig-oceanic": `
+          <svg class="${sizeClass}" viewBox="0 0 180 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="liq-${uid}" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#1A5282"/>
+                <stop offset="55%" stop-color="#0B2D4E"/>
+                <stop offset="100%" stop-color="#06192E"/>
+              </linearGradient>
+              <linearGradient id="gold-${uid}" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#A67E2E"/>
+                <stop offset="50%" stop-color="#F2DC91"/>
+                <stop offset="100%" stop-color="#9A7225"/>
+              </linearGradient>
+            </defs>
+            <polygon points="66,16 114,16 110,48 70,48" fill="#102C49" stroke="url(#gold-${uid})" stroke-width="1.3"/>
+            <rect x="71" y="48" width="38" height="11" fill="url(#gold-${uid})"/>
+            <polygon points="48,59 132,59 138,85 135,214 45,214 42,85" fill="url(#liq-${uid})" stroke="#3877AD" stroke-width="1.3"/>
+            <polyline points="48,59 72,115 45,214" stroke="rgba(125,190,245,0.3)" stroke-width="1.1"/>
+            <polyline points="132,59 108,115 135,214" stroke="rgba(125,190,245,0.25)" stroke-width="1.1"/>
+            <text x="90" y="135" text-anchor="middle" fill="#E8CF7D" font-family="Cormorant Garamond, serif" font-size="22" font-weight="700">VL</text>
+            <text x="90" y="148" text-anchor="middle" fill="#E8CF7D" font-family="Plus Jakarta Sans, sans-serif" font-size="6.2" letter-spacing="2.3">VALENTINO</text>
+            <text x="90" y="194" text-anchor="middle" fill="#C7DDF0" font-family="Plus Jakarta Sans, sans-serif" font-size="6" letter-spacing="2.5">OCEANIC</text>
+          </svg>`,
+
+        "sig-forest": `
+          <svg class="${sizeClass}" viewBox="0 0 180 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="liq-${uid}" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#4A6B4E"/>
+                <stop offset="60%" stop-color="#334E37"/>
+                <stop offset="100%" stop-color="#213524"/>
+              </linearGradient>
+              <linearGradient id="gold-${uid}" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#A67E2E"/>
+                <stop offset="50%" stop-color="#F2DC91"/>
+                <stop offset="100%" stop-color="#9A7225"/>
+              </linearGradient>
+            </defs>
+            <rect x="68" y="20" width="44" height="30" rx="4" fill="#294833" stroke="#5A8265" stroke-width="1.2"/>
+            <path d="M72 26 Q90 36 108 28" stroke="#85AB8E" stroke-width="1" opacity="0.6"/>
+            <rect x="72" y="50" width="36" height="10" fill="url(#gold-${uid})"/>
+            <rect x="44" y="60" width="92" height="156" rx="10" fill="url(#liq-${uid})" stroke="#6B8E70" stroke-width="1.4"/>
+            <rect x="52" y="68" width="12" height="140" rx="5" fill="rgba(255,255,255,0.1)"/>
+            <text x="90" y="135" text-anchor="middle" fill="#E8CF7D" font-family="Cormorant Garamond, serif" font-size="22" font-weight="700">VL</text>
+            <text x="90" y="148" text-anchor="middle" fill="#E8CF7D" font-family="Plus Jakarta Sans, sans-serif" font-size="6.2" letter-spacing="2.3">VALENTINO</text>
+            <text x="90" y="194" text-anchor="middle" fill="#D4E3D6" font-family="Plus Jakarta Sans, sans-serif" font-size="6" letter-spacing="2.5">FOREST</text>
+          </svg>`,
+
+        "sig-amber": `
+          <svg class="${sizeClass}" viewBox="0 0 180 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="liq-${uid}" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#D97E54"/>
+                <stop offset="55%" stop-color="#A84C28"/>
+                <stop offset="100%" stop-color="#6E2B12"/>
+              </linearGradient>
+              <linearGradient id="stone-${uid}" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#EDE2D2"/>
+                <stop offset="100%" stop-color="#C4B199"/>
+              </linearGradient>
+            </defs>
+            <polygon points="58,12 122,16 114,48 66,48" fill="url(#stone-${uid})" stroke="#DFD2C0" stroke-width="1.2"/>
+            <rect x="72" y="48" width="36" height="11" fill="#C98A63"/>
+            <polygon points="44,59 136,59 144,92 136,216 44,216 36,92" fill="url(#liq-${uid})" stroke="#F0A57D" stroke-width="1.4"/>
+            <polyline points="44,59 74,122 44,216" stroke="rgba(255,215,185,0.35)" stroke-width="1.2"/>
+            <polyline points="136,59 106,122 136,216" stroke="rgba(255,215,185,0.28)" stroke-width="1.2"/>
+            <text x="90" y="135" text-anchor="middle" fill="#F6E199" font-family="Cormorant Garamond, serif" font-size="23" font-weight="700">VL</text>
+            <text x="90" y="148" text-anchor="middle" fill="#F6E199" font-family="Plus Jakarta Sans, sans-serif" font-size="6.2" letter-spacing="2.3">VALENTINO</text>
+            <text x="90" y="196" text-anchor="middle" fill="#F7D8C4" font-family="Plus Jakarta Sans, sans-serif" font-size="6" letter-spacing="2.6">AMBER</text>
+          </svg>`,
+
+        "sig-vetiver": `
+          <svg class="${sizeClass}" viewBox="0 0 180 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="liq-${uid}" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#75688F"/>
+                <stop offset="55%" stop-color="#4C4263"/>
+                <stop offset="100%" stop-color="#2E273D"/>
+              </linearGradient>
+              <linearGradient id="silver-${uid}" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#8A8E96"/>
+                <stop offset="50%" stop-color="#E5E8EE"/>
+                <stop offset="100%" stop-color="#767A82"/>
+              </linearGradient>
+            </defs>
+            <rect x="68" y="18" width="44" height="30" rx="3" fill="url(#silver-${uid})"/>
+            <rect x="72" y="48" width="36" height="12" fill="#A0A5AE"/>
+            <rect x="46" y="60" width="88" height="156" rx="8" fill="url(#liq-${uid})" stroke="#A79CC2" stroke-width="1.3"/>
+            <line x1="60" y1="62" x2="60" y2="214" stroke="rgba(255,255,255,0.22)" stroke-width="1.2"/>
+            <line x1="72" y1="62" x2="72" y2="214" stroke="rgba(255,255,255,0.16)" stroke-width="1"/>
+            <line x1="108" y1="62" x2="108" y2="214" stroke="rgba(255,255,255,0.16)" stroke-width="1"/>
+            <line x1="120" y1="62" x2="120" y2="214" stroke="rgba(255,255,255,0.22)" stroke-width="1.2"/>
+            <text x="90" y="135" text-anchor="middle" fill="#EAECEF" font-family="Cormorant Garamond, serif" font-size="22" font-weight="700">VL</text>
+            <text x="90" y="148" text-anchor="middle" fill="#EAECEF" font-family="Plus Jakarta Sans, sans-serif" font-size="6.2" letter-spacing="2.3">VALENTINO</text>
+            <text x="90" y="194" text-anchor="middle" fill="#D5CEE3" font-family="Plus Jakarta Sans, sans-serif" font-size="6" letter-spacing="2.5">VETIVER</text>
+          </svg>`,
+
+        "sig-urban": `
+          <svg class="${sizeClass}" viewBox="0 0 180 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="liq-${uid}" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#295B5E"/>
+                <stop offset="60%" stop-color="#173A3D"/>
+                <stop offset="100%" stop-color="#0C2224"/>
+              </linearGradient>
+              <linearGradient id="metal-${uid}" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#4A4E54"/>
+                <stop offset="50%" stop-color="#9CA2AB"/>
+                <stop offset="100%" stop-color="#3E4247"/>
+              </linearGradient>
+            </defs>
+            <rect x="62" y="22" width="56" height="26" rx="2" fill="url(#metal-${uid})"/>
+            <rect x="72" y="48" width="36" height="12" fill="#1D2836"/>
+            <rect x="44" y="60" width="92" height="156" rx="5" fill="url(#liq-${uid})" stroke="#5D9699" stroke-width="1.4"/>
+            <rect x="52" y="68" width="76" height="140" rx="3" stroke="rgba(145,210,214,0.22)" stroke-width="1"/>
+            <text x="90" y="135" text-anchor="middle" fill="#E4E7EB" font-family="Cormorant Garamond, serif" font-size="22" font-weight="700">VL</text>
+            <text x="90" y="148" text-anchor="middle" fill="#E4E7EB" font-family="Plus Jakarta Sans, sans-serif" font-size="6.2" letter-spacing="2.3">VALENTINO</text>
+            <text x="90" y="194" text-anchor="middle" fill="#B8D8DA" font-family="Plus Jakarta Sans, sans-serif" font-size="6" letter-spacing="2.5">URBAN</text>
+          </svg>`,
+
+        "br-terra": `
+          <svg class="${sizeClass}" viewBox="0 0 180 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="liq-${uid}" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#B86B28"/>
+                <stop offset="55%" stop-color="#7C4114"/>
+                <stop offset="100%" stop-color="#4A2409"/>
+              </linearGradient>
+              <linearGradient id="wood-${uid}" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#6E472B"/>
+                <stop offset="100%" stop-color="#3E2514"/>
+              </linearGradient>
+              <linearGradient id="gold-${uid}" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#A67E2E"/>
+                <stop offset="50%" stop-color="#F2DC91"/>
+                <stop offset="100%" stop-color="#9A7225"/>
+              </linearGradient>
+            </defs>
+            <polygon points="66,16 114,16 122,26 122,46 58,46 58,26" fill="url(#wood-${uid})" stroke="#9C6B43" stroke-width="1.2"/>
+            <rect x="72" y="46" width="36" height="13" fill="url(#gold-${uid})"/>
+            <polygon points="52,59 128,59 142,76 142,200 126,216 54,216 38,200 38,76" fill="url(#liq-${uid})" stroke="#D99654" stroke-width="1.4"/>
+            <polyline points="52,59 64,84 64,194 54,216" stroke="rgba(255,210,160,0.3)" stroke-width="1.1"/>
+            <polyline points="128,59 116,84 116,194 126,216" stroke="rgba(255,210,160,0.25)" stroke-width="1.1"/>
+            <text x="90" y="138" text-anchor="middle" fill="#F5DF96" font-family="Cormorant Garamond, serif" font-size="22" font-weight="700">VL</text>
+            <text x="90" y="151" text-anchor="middle" fill="#F5DF96" font-family="Plus Jakarta Sans, sans-serif" font-size="6.2" letter-spacing="2.3">VALENTINO</text>
+          </svg>`,
+
+        "br-atlantic": `
+          <svg class="${sizeClass}" viewBox="0 0 180 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="liq-${uid}" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#24638E"/>
+                <stop offset="55%" stop-color="#123C5C"/>
+                <stop offset="100%" stop-color="#092136"/>
+              </linearGradient>
+              <linearGradient id="gold-${uid}" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#A67E2E"/>
+                <stop offset="50%" stop-color="#F2DC91"/>
+                <stop offset="100%" stop-color="#9A7225"/>
+              </linearGradient>
+            </defs>
+            <polygon points="66,16 114,16 122,26 122,46 58,46 58,26" fill="#133452" stroke="#4D8AB5" stroke-width="1.2"/>
+            <rect x="72" y="46" width="36" height="13" fill="url(#gold-${uid})"/>
+            <polygon points="52,59 128,59 142,76 142,200 126,216 54,216 38,200 38,76" fill="url(#liq-${uid})" stroke="#5EA3D1" stroke-width="1.4"/>
+            <polyline points="52,59 64,84 64,194 54,216" stroke="rgba(165,220,255,0.32)" stroke-width="1.1"/>
+            <polyline points="128,59 116,84 116,194 126,216" stroke="rgba(165,220,255,0.25)" stroke-width="1.1"/>
+            <text x="90" y="138" text-anchor="middle" fill="#F5DF96" font-family="Cormorant Garamond, serif" font-size="22" font-weight="700">VL</text>
+            <text x="90" y="151" text-anchor="middle" fill="#F5DF96" font-family="Plus Jakarta Sans, sans-serif" font-size="6.2" letter-spacing="2.3">VALENTINO</text>
+          </svg>`,
+
+        "br-imperial": `
+          <svg class="${sizeClass}" viewBox="0 0 180 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="liq-${uid}" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#2B5934"/>
+                <stop offset="55%" stop-color="#17381E"/>
+                <stop offset="100%" stop-color="#0B1F10"/>
+              </linearGradient>
+              <linearGradient id="gold-${uid}" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#A67E2E"/>
+                <stop offset="50%" stop-color="#F2DC91"/>
+                <stop offset="100%" stop-color="#9A7225"/>
+              </linearGradient>
+            </defs>
+            <polygon points="66,16 114,16 122,26 122,46 58,46 58,26" fill="#1B3B22" stroke="#5D9668" stroke-width="1.2"/>
+            <rect x="72" y="46" width="36" height="13" fill="url(#gold-${uid})"/>
+            <polygon points="52,59 128,59 142,76 142,200 126,216 54,216 38,200 38,76" fill="url(#liq-${uid})" stroke="#6BA876" stroke-width="1.4"/>
+            <polyline points="52,59 64,84 64,194 54,216" stroke="rgba(175,235,185,0.28)" stroke-width="1.1"/>
+            <polyline points="128,59 116,84 116,194 126,216" stroke="rgba(175,235,185,0.22)" stroke-width="1.1"/>
+            <text x="90" y="138" text-anchor="middle" fill="#F5DF96" font-family="Cormorant Garamond, serif" font-size="22" font-weight="700">VL</text>
+            <text x="90" y="151" text-anchor="middle" fill="#F5DF96" font-family="Plus Jakarta Sans, sans-serif" font-size="6.2" letter-spacing="2.3">VALENTINO</text>
+          </svg>`,
+
+        "br-noir": `
+          <svg class="${sizeClass}" viewBox="0 0 180 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="liq-${uid}" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#333336"/>
+                <stop offset="55%" stop-color="#19191B"/>
+                <stop offset="100%" stop-color="#09090A"/>
+              </linearGradient>
+              <linearGradient id="gold-${uid}" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#8C6A26"/>
+                <stop offset="50%" stop-color="#DFC474"/>
+                <stop offset="100%" stop-color="#78591D"/>
+              </linearGradient>
+            </defs>
+            <polygon points="66,16 114,16 122,26 122,46 58,46 58,26" fill="#141416" stroke="#4D4D52" stroke-width="1.2"/>
+            <rect x="72" y="46" width="36" height="13" fill="#2A2A2E" stroke="url(#gold-${uid})" stroke-width="0.9"/>
+            <polygon points="52,59 128,59 142,76 142,200 126,216 54,216 38,200 38,76" fill="url(#liq-${uid})" stroke="#5C5C63" stroke-width="1.4"/>
+            <polyline points="52,59 64,84 64,194 54,216" stroke="rgba(255,255,255,0.2)" stroke-width="1.1"/>
+            <polyline points="128,59 116,84 116,194 126,216" stroke="rgba(255,255,255,0.14)" stroke-width="1.1"/>
+            <text x="90" y="138" text-anchor="middle" fill="#E6CA75" font-family="Cormorant Garamond, serif" font-size="22" font-weight="700">VL</text>
+            <text x="90" y="151" text-anchor="middle" fill="#E6CA75" font-family="Plus Jakarta Sans, sans-serif" font-size="6.2" letter-spacing="2.3">VALENTINO</text>
+          </svg>`,
+
+        "br-cacau": `
+          <svg class="${sizeClass}" viewBox="0 0 180 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="liq-${uid}" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#945628"/>
+                <stop offset="55%" stop-color="#5E3213"/>
+                <stop offset="100%" stop-color="#361A07"/>
+              </linearGradient>
+              <linearGradient id="gold-${uid}" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#9E762A"/>
+                <stop offset="50%" stop-color="#F0D88B"/>
+                <stop offset="100%" stop-color="#8C6722"/>
+              </linearGradient>
+            </defs>
+            <polygon points="66,22 114,22 122,32 122,52 58,52 58,32" fill="#8C633B" stroke="url(#gold-${uid})" stroke-width="1.3"/>
+            <rect x="72" y="52" width="36" height="13" fill="url(#gold-${uid})"/>
+            <polygon points="48,65 132,65 146,82 146,202 130,216 50,216 34,202 34,82" fill="url(#liq-${uid})" stroke="#C9884F" stroke-width="1.4"/>
+            <polyline points="48,65 60,88 60,196 50,216" stroke="rgba(255,212,170,0.3)" stroke-width="1.1"/>
+            <polyline points="132,65 120,88 120,196 130,216" stroke="rgba(255,212,170,0.24)" stroke-width="1.1"/>
+            <text x="90" y="142" text-anchor="middle" fill="#F5DF96" font-family="Cormorant Garamond, serif" font-size="22" font-weight="700">VL</text>
+            <text x="90" y="155" text-anchor="middle" fill="#F5DF96" font-family="Plus Jakarta Sans, sans-serif" font-size="6.2" letter-spacing="2.3">VALENTINO</text>
+          </svg>`
+      };
+
+      return designs[perfume.bottleStyle] || designs["golden-prism"];
+    }
+
+    /* ========================================================================
+       3. UTILITÁRIOS & ESTADO DA APLICAÇÃO
+       ======================================================================== */
+    let currentCollection = "Todas";
+    let currentFamily = "Todas";
+    let currentSearch = "";
+    let bag = [];
+
+    function formatBRL(value) {
+      return value.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+    }
+
+    function normalizeText(str) {
+      return str
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "");
+    }
+
+    /* ========================================================================
+       4. NAVEGAÇÃO ENTRE ABAS
+       ======================================================================== */
+    function switchTab(tabId) {
+      document.querySelectorAll(".nav-tab").forEach((btn) => {
+        btn.classList.toggle("active", btn.dataset.tab === tabId);
+      });
+
+      document.querySelectorAll(".tab-view").forEach((view) => {
+        view.classList.toggle("active", view.id === `tab-${tabId}`);
+      });
+
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    /* ========================================================================
+       5. FILTRAGEM & RENDERIZAÇÃO DA VITRINE
+       ======================================================================== */
+    function getFilteredPerfumes() {
+      const q = normalizeText(currentSearch.trim());
+
+      return PERFUMES.filter((p) => {
+        const matchCollection = currentCollection === "Todas" || p.collection === currentCollection;
+        const matchFamily = currentFamily === "Todas" || p.familyCategory === currentFamily;
+
+        if (!q) return matchCollection && matchFamily;
+
+        const searchable = normalizeText([
+          p.name,
+          p.collection,
+          p.family,
+          ...p.topNotes,
+          ...p.heartNotes,
+          ...p.baseNotes,
+          ...p.personality,
+          ...p.accords.map((a) => a.name)
+        ].join(" "));
+
+        return matchCollection && matchFamily && searchable.includes(q);
+      });
+    }
+
+    function renderCatalog() {
+      const grid = document.getElementById("perfumeGrid");
+      const counter = document.getElementById("resultsCounter");
+      const filtered = getFilteredPerfumes();
+
+      counter.innerHTML = `Exibindo <strong>${filtered.length}</strong> de ${PERFUMES.length} fragrâncias`;
+
+      if (filtered.length === 0) {
+        grid.innerHTML = `
+          <div class="empty-state">
+            <h3>Nenhuma fragrância encontrada</h3>
+            <p>Não encontramos perfumes com os filtros atuais. Experimente buscar por outra nota olfativa ou explore toda a coleção.</p>
+            <button class="btn-gold-primary" onclick="resetFilters()">Restaurar Vitrine Completa</button>
+          </div>
+        `;
+        return;
+      }
+
+      grid.innerHTML = filtered.map((p) => {
+        const keyNotes = [...p.topNotes.slice(0, 1), ...p.heartNotes.slice(0, 1), ...p.baseNotes.slice(0, 1)].join(" • ");
+        const topAccords = p.accords.slice(0, 3).map((acc) =>
+          `<span class="mini-accord-pill" style="--accord-color: ${acc.color}">${acc.name}</span>`
+        ).join("");
+
+        return `
+          <article class="perfume-card" onclick="openPerfumeModal(${p.id})" onmousemove="trackCardGlow(event, this)">
+            <div class="card-visual">
+              <span class="card-collection-tag">${p.collection}</span>
+              <span class="card-volume-tag">${p.volume}</span>
+              <div class="bottle-svg-wrap">
+                ${renderBottleSVG(p)}
+              </div>
+            </div>
+
+            <div class="card-body">
+              <div class="card-family">${p.family}</div>
+              <h2 class="card-title">${p.name}</h2>
+              <p class="card-notes-preview">${keyNotes}</p>
+
+              <div class="card-mini-accords">
+                ${topAccords}
+              </div>
+
+              <div class="card-footer">
+                <div class="card-price">${formatBRL(p.price)}</div>
+                <div class="card-actions">
+                  <button class="btn-details" onclick="event.stopPropagation(); openPerfumeModal(${p.id})">
+                    Pirâmide
+                  </button>
+                  <button
+                    class="btn-add-icon"
+                    title="Adicionar ${p.name} à sacola"
+                    aria-label="Adicionar ${p.name} à sacola"
+                    onclick="event.stopPropagation(); addToBag(${p.id})"
+                  >
+                    +
+                  </button>
+                </div>
+              </div>
+            </div>
+          </article>
+        `;
+      }).join("");
+    }
+
+    function trackCardGlow(e, card) {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      card.style.setProperty("--mouse-x", `${x}px`);
+      card.style.setProperty("--mouse-y", `${y}px`);
+    }
+
+    function resetFilters() {
+      currentCollection = "Todas";
+      currentFamily = "Todas";
+      currentSearch = "";
+      document.getElementById("searchInput").value = "";
+      document.getElementById("clearSearchBtn").style.display = "none";
+
+      document.querySelectorAll("#collectionFilters .filter-pill").forEach((b) => {
+        b.classList.toggle("active", b.dataset.collection === "Todas");
+      });
+      document.querySelectorAll("#familyFilters .family-chip").forEach((b) => {
+        b.classList.toggle("active", b.dataset.family === "Todas");
+      });
+
+      renderCatalog();
+    }
+
+    document.getElementById("collectionFilters").addEventListener("click", (e) => {
+      const btn = e.target.closest(".filter-pill");
+      if (!btn) return;
+      currentCollection = btn.dataset.collection;
+      document.querySelectorAll("#collectionFilters .filter-pill").forEach((b) => b.classList.remove("active"));
+      btn.classList.add("active");
+      renderCatalog();
+    });
+
+    document.getElementById("familyFilters").addEventListener("click", (e) => {
+      const btn = e.target.closest(".family-chip");
+      if (!btn) return;
+      currentFamily = btn.dataset.family;
+      document.querySelectorAll("#familyFilters .family-chip").forEach((b) => b.classList.remove("active"));
+      btn.classList.add("active");
+      renderCatalog();
+    });
+
+    const searchInputEl = document.getElementById("searchInput");
+    const clearSearchBtn = document.getElementById("clearSearchBtn");
+
+    searchInputEl.addEventListener("input", (e) => {
+      currentSearch = e.target.value;
+      clearSearchBtn.style.display = currentSearch ? "block" : "none";
+      renderCatalog();
+    });
+
+    clearSearchBtn.addEventListener("click", () => {
+      currentSearch = "";
+      searchInputEl.value = "";
+      clearSearchBtn.style.display = "none";
+      renderCatalog();
+    });
+
+    /* ========================================================================
+       6. MODAL ESTILO FRAGRANTICA (ACORDES, PIRÂMIDE OLFATIVA & PERSONALIDADE)
+       ======================================================================== */
+    function openPerfumeModal(id) {
+      const p = PERFUMES.find((item) => item.id === id);
+      if (!p) return;
+
+      const backdrop = document.getElementById("perfumeModalBackdrop");
+      const modalBody = document.getElementById("modalBody");
+
+      const accordBarsHTML = p.accords.map((acc) => `
+        <div class="accord-bar-row">
+          <div class="accord-bar-fill" style="width: ${acc.strength}%; background: linear-gradient(90deg, ${acc.color}, ${acc.color}CC);">
+            <span>${acc.name}</span>
+            <span style="font-size: 0.68rem; opacity: 0.9;">${acc.strength}%</span>
+          </div>
+        </div>
+      `).join("");
+
+      const topTags = p.topNotes.map((n) => `<span class="note-tag">${n}</span>`).join("");
+      const heartTags = p.heartNotes.map((n) => `<span class="note-tag">${n}</span>`).join("");
+      const baseTags = p.baseNotes.map((n) => `<span class="note-tag">${n}</span>`).join("");
+      const personalityTags = p.personality.map((trait) => `<span class="personality-badge">${trait}</span>`).join("");
+
+      modalBody.innerHTML = `
+        <div class="modal-left-col">
+          <div class="modal-bottle-stage">
+            ${renderBottleSVG(p, "modal-bottle-svg")}
+            <p class="bottle-caption">${p.bottleDesc}</p>
+            <span class="campaign-ref-badge">${p.campaignRef}</span>
+          </div>
+
+          <div class="accords-box">
+            <div class="section-mini-title">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="4" y1="21" x2="4" y2="14"></line>
+                <line x1="4" y1="10" x2="4" y2="3"></line>
+                <line x1="12" y1="21" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12" y2="3"></line>
+                <line x1="20" y1="21" x2="20" y2="16"></line>
+                <line x1="20" y1="12" x2="20" y2="3"></line>
+              </svg>
+              Acordes Principais
+            </div>
+            <div class="accord-bars-list">
+              ${accordBarsHTML}
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-right-col">
+          <div>
+            <div class="modal-meta-row">
+              <span class="modal-collection-badge">${p.collection}</span>
+              <span class="modal-volume-badge">Frasco ${p.volume}</span>
+              <span class="modal-volume-badge">Alta Fixação</span>
+            </div>
+            <h2 class="modal-perfume-title" id="modalPerfumeTitle">${p.name}</h2>
+            <div class="modal-perfume-family">Família Olfativa: ${p.family}</div>
+          </div>
+
+          <div class="modal-purchase-bar">
+            <div class="modal-price-block">
+              <span>Valor Exclusivo (${p.volume})</span>
+              <div class="modal-price-value">${formatBRL(p.price)}</div>
+            </div>
+            <button class="btn-gold-primary" onclick="addToBag(${p.id}); closePerfumeModal();">
+              Adicionar à Sacola
+            </button>
+          </div>
+
+          <div class="pyramid-container">
+            <div class="section-mini-title">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="12 2 2 22 22 22 12 2"></polygon>
+              </svg>
+              Pirâmide Olfativa
+            </div>
+
+            <div class="pyramid-layers">
+              <div class="pyramid-layer top-layer">
+                <div class="layer-icon" title="Notas de Saída">
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+                  </svg>
+                </div>
+                <div class="layer-info">
+                  <h4>Notas de Saída (Topo)</h4>
+                  <div class="layer-notes-chips">${topTags}</div>
+                </div>
+              </div>
+
+              <div class="pyramid-layer heart-layer">
+                <div class="layer-icon" title="Notas de Coração">
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                  </svg>
+                </div>
+                <div class="layer-info">
+                  <h4>Notas de Coração (Corpo)</h4>
+                  <div class="layer-notes-chips">${heartTags}</div>
+                </div>
+              </div>
+
+              <div class="pyramid-layer base-layer">
+                <div class="layer-icon" title="Notas de Fundo">
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                  </svg>
+                </div>
+                <div class="layer-info">
+                  <h4>Notas de Fundo (Base)</h4>
+                  <div class="layer-notes-chips">${baseTags}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="personality-box">
+            <div class="section-mini-title">Personalidade da Fragrância</div>
+            <div class="personality-badges">
+              ${personalityTags}
+            </div>
+          </div>
+        </div>
+      `;
+
+      backdrop.classList.add("open");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closePerfumeModal() {
+      document.getElementById("perfumeModalBackdrop").classList.remove("open");
+      document.body.style.overflow = "";
+    }
+
+    function handleBackdropClick(e) {
+      if (e.target.id === "perfumeModalBackdrop") {
+        closePerfumeModal();
+      }
+    }
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        closePerfumeModal();
+        toggleBag(false);
+      }
+    });
+
+    /* ========================================================================
+       7. SACOLA LATERAL FUNCIONAL
+       ======================================================================== */
+    function addToBag(perfumeId) {
+      const perfume = PERFUMES.find((p) => p.id === perfumeId);
+      if (!perfume) return;
+
+      const existing = bag.find((item) => item.perfume.id === perfumeId);
+      if (existing) {
+        existing.qty += 1;
+      } else {
+        bag.push({ perfume, qty: 1 });
+      }
+
+      updateBagUI();
+      showToast(`${perfume.name} (${perfume.volume}) adicionado à sua sacola.`);
+    }
+
+    function changeQty(perfumeId, delta) {
+      const idx = bag.findIndex((item) => item.perfume.id === perfumeId);
+      if (idx === -1) return;
+
+      bag[idx].qty += delta;
+      if (bag[idx].qty <= 0) {
+        bag.splice(idx, 1);
+      }
+      updateBagUI();
+    }
+
+    function removeFromBag(perfumeId) {
+      bag = bag.filter((item) => item.perfume.id !== perfumeId);
+      updateBagUI();
+    }
+
+    function updateBagUI() {
+      const totalItems = bag.reduce((sum, item) => sum + item.qty, 0);
+      const subtotal = bag.reduce((sum, item) => sum + item.perfume.price * item.qty, 0);
+
+      const countEl = document.getElementById("bagCount");
+      countEl.textContent = totalItems;
+      countEl.classList.remove("bump");
+      void countEl.offsetWidth;
+      countEl.classList.add("bump");
+
+      document.getElementById("bagSubtotal").textContent = formatBRL(subtotal);
+
+      const container = document.getElementById("bagItemsContainer");
+      if (bag.length === 0) {
+        container.innerHTML = `
+          <div style="text-align: center; padding: 3rem 1rem; color: var(--text-muted);">
+            <p style="font-family: var(--font-serif); font-size: 1.45rem; color: var(--cream-primary); margin-bottom: 0.4rem;">
+              Sua sacola está vazia
+            </p>
+            <p style="font-size: 0.84rem;">Explore nossa coleção e descubra sua próxima assinatura olfativa.</p>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = bag.map(({ perfume, qty }) => `
+        <div class="bag-item">
+          <div class="bag-item-bottle">${renderBottleSVG(perfume)}</div>
+          <div class="bag-item-details">
+            <h4>${perfume.name}</h4>
+            <div class="bag-item-meta">${perfume.collection} • ${perfume.volume}</div>
+            <div class="bag-item-price">${formatBRL(perfume.price * qty)}</div>
+            <div class="qty-controls">
+              <button class="qty-btn" onclick="changeQty(${perfume.id}, -1)" aria-label="Diminuir quantidade">−</button>
+              <span style="font-size: 0.82rem; min-width: 18px; text-align: center;">${qty}</span>
+              <button class="qty-btn" onclick="changeQty(${perfume.id}, 1)" aria-label="Aumentar quantidade">+</button>
+              <button class="remove-item-btn" onclick="removeFromBag(${perfume.id})">Remover</button>
+            </div>
+          </div>
+        </div>
+      `).join("");
+    }
+
+    function toggleBag(open) {
+      document.getElementById("drawerOverlay").classList.toggle("open", open);
+      document.getElementById("bagDrawer").classList.toggle("open", open);
+    }
+
+    function checkoutBag() {
+      if (bag.length === 0) {
+        showToast("Adicione ao menos uma fragrância à sacola antes de finalizar.");
+        return;
+      }
+      const total = bag.reduce((sum, item) => sum + item.perfume.price * item.qty, 0);
+      bag = [];
+      updateBagUI();
+      toggleBag(false);
+      showToast(`Pedido exclusivo confirmado (${formatBRL(total)})! Embalagem presenteável VL incluída.`);
+    }
+
+    let toastTimer;
+    function showToast(message) {
+      const toast = document.getElementById("toastNotification");
+      document.getElementById("toastMessage").textContent = message;
+      toast.classList.add("show");
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => toast.classList.remove("show"), 3400);
+    }
+
+    /* ========================================================================
+       8. MOTOR INTELIGENTE DE RECOMENDAÇÃO OLFATIVA (VALENTINO CONCIERGE AI)
+       ======================================================================== */
+    function initConciergeChat() {
+      const chatBox = document.getElementById("chatMessages");
+      chatBox.innerHTML = "";
+      appendBotMessage(
+        "Bem-vindo à <strong>Maison VL | Valentino</strong>. Sou sua Consultora Olfativa 24h. Conte-me qual ocasião, nota predileta, sensação ou faixa de investimento você procura — indicarei as duas criações mais harmoniosas para a sua pele.",
+        []
+      );
+    }
+
+    function resetChat() {
+      initConciergeChat();
+    }
+
+    function sendQuickPrompt(text) {
+      document.getElementById("chatInput").value = text;
+      handleChatSubmit(new Event("submit"));
+    }
+
+    function handleChatSubmit(e) {
+      e.preventDefault();
+      const input = document.getElementById("chatInput");
+      const rawText = input.value.trim();
+      if (!rawText) return;
+
+      appendUserMessage(rawText);
+      input.value = "";
+
+      const typingEl = showTypingIndicator();
+
+      setTimeout(() => {
+        typingEl.remove();
+        const response = generateConsultativeRecommendation(rawText);
+        appendBotMessage(response.message, response.recommendations);
+      }, 650);
+    }
+
+    function appendUserMessage(text) {
+      const chatBox = document.getElementById("chatMessages");
+      const msgDiv = document.createElement("div");
+      msgDiv.className = "chat-msg user";
+      msgDiv.innerHTML = `<div class="msg-bubble">${escapeHTML(text)}</div>`;
+      chatBox.appendChild(msgDiv);
+      chatBox.scrollTop = chatBox.scrollHeight;
+    }
+
+    function appendBotMessage(htmlText, recommendedPerfumes) {
+      const chatBox = document.getElementById("chatMessages");
+      const msgDiv = document.createElement("div");
+      msgDiv.className = "chat-msg bot";
+
+      let cardsHTML = "";
+      if (recommendedPerfumes && recommendedPerfumes.length > 0) {
+        cardsHTML = `
+          <div class="chat-recommendations">
+            ${recommendedPerfumes.map((p) => `
+              <div class="chat-rec-card" onclick="openPerfumeModal(${p.id})" role="button" tabindex="0">
+                <div class="chat-rec-bottle">${renderBottleSVG(p)}</div>
+                <div class="chat-rec-info">
+                  <h4>${p.name}</h4>
+                  <span>${p.family} • ${p.volume}</span>
+                  <div class="chat-rec-price">${formatBRL(p.price)}</div>
+                  <span class="chat-rec-cta">Ver Pirâmide Olfativa →</span>
+                </div>
+              </div>
+            `).join("")}
+          </div>
+        `;
+      }
+
+      msgDiv.innerHTML = `
+        <div class="msg-bubble">${htmlText}</div>
+        ${cardsHTML}
+      `;
+      chatBox.appendChild(msgDiv);
+      chatBox.scrollTop = chatBox.scrollHeight;
+    }
+
+    function showTypingIndicator() {
+      const chatBox = document.getElementById("chatMessages");
+      const wrapper = document.createElement("div");
+      wrapper.className = "chat-msg bot";
+      wrapper.innerHTML = `
+        <div class="typing-indicator" aria-label="Consultora digitando">
+          <span class="typing-dot"></span>
+          <span class="typing-dot"></span>
+          <span class="typing-dot"></span>
+        </div>
+      `;
+      chatBox.appendChild(wrapper);
+      chatBox.scrollTop = chatBox.scrollHeight;
+      return wrapper;
+    }
+
+    function escapeHTML(str) {
+      return str.replace(/[&<>"']/g, (m) => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#39;"
+      }[m]));
+    }
+
+    function generateConsultativeRecommendation(userQuery) {
+      const q = normalizeText(userQuery);
+
+      let maxPrice = null;
+      const priceMatch = q.match(/(?:ate|menos de|maximo|no maximo|r\$)?\s*(\d{3})/);
+      if (priceMatch && (q.includes("ate") || q.includes("menos") || q.includes("r$") || q.includes("reais") || q.includes("barato"))) {
+        maxPrice = parseFloat(priceMatch[1]);
+      }
+
+      const intentBoosts = [
+        { terms: ["fresco", "calor", "verao", "dia", "praia", "leve", "limpo", "marinho", "citrico", "aquatico"], families: ["Aquático & Cítrico"], notes: ["bergamota", "marinho", "lima", "limao", "neroli", "maca"] },
+        { terms: ["noite", "noturno", "intenso", "balada", "festa", "inverno", "frio", "marcante", "forte", "escuro"], families: ["Oriental", "Amadeirado"], notes: ["oud", "cafe", "cacau", "couro", "ambar", "incenso", "tabaco", "pimenta"] },
+        { terms: ["doce", "gourmand", "baunilha", "chocolate", "cacau", "cremoso", "envolvente", "avela", "praline"], families: ["Gourmand & Chypre", "Oriental", "Floral"], notes: ["baunilha", "cacau", "praline", "avela", "fava tonka"] },
+        { terms: ["amadeirado", "madeira", "vetiver", "cedro", "sandalo", "terroso", "masculino", "classico"], families: ["Amadeirado"], notes: ["vetiver", "cedro", "sandalo", "jacaranda", "oud", "patchouli", "guaiaco"] },
+        { terms: ["floral", "flor", "rosa", "romantico", "delicado", "feminino", "jasmim", "peonia", "iris"], families: ["Floral", "Oriental"], notes: ["rosa", "jasmim", "peonia", "iris", "magnolia", "flor de laranjeira", "orquidea"] },
+        { terms: ["trabalho", "escritorio", "reuniao", "elegante", "sofisticado", "versatil", "presente"], families: ["Floral", "Amadeirado", "Aquático & Cítrico"], notes: ["bergamota", "iris", "vetiver", "musk", "cedro"] }
+      ];
+
+      let candidatePool = [...PERFUMES];
+      if (maxPrice !== null) {
+        const withinBudget = candidatePool.filter((p) => p.price <= maxPrice);
+        if (withinBudget.length >= 2) {
+          candidatePool = withinBudget;
+        }
+      }
+
+      const scored = candidatePool.map((p) => {
+        let score = 0;
+        const allNotes = normalizeText([...p.topNotes, ...p.heartNotes, ...p.baseNotes].join(" "));
+        const fullMeta = normalizeText([p.name, p.collection, p.family, ...p.personality, ...p.keywords, ...p.accords.map((a) => a.name)].join(" "));
+
+        const tokens = q.split(/\s+/).filter((t) => t.length > 2);
+        tokens.forEach((token) => {
+          if (normalizeText(p.name).includes(token)) score += 12;
+          if (allNotes.includes(token)) score += 7;
+          if (fullMeta.includes(token)) score += 4;
+        });
+
+        intentBoosts.forEach((group) => {
+          const matchedIntent = group.terms.some((t) => q.includes(t));
+          if (matchedIntent) {
+            if (group.families.includes(p.familyCategory)) score += 6;
+            group.notes.forEach((n) => {
+              if (allNotes.includes(n)) score += 4;
+            });
+          }
+        });
+
+        if (maxPrice !== null && p.price <= maxPrice) {
+          score += 8;
+        }
+
+        score += (p.accords[0].strength / 100);
+
+        return { perfume: p, score };
+      });
+
+      scored.sort((a, b) => b.score - a.score);
+      const topTwo = scored.slice(0, 2).map((s) => s.perfume);
+
+      const [first, second] = topTwo;
+      const budgetNote = maxPrice !== null
+        ? ` respeitando seu teto de <strong>${formatBRL(maxPrice)}</strong>`
+        : "";
+
+      const message = `
+        Com base na sua curadoria${budgetNote}, selecionei duas assinaturas excepcionais da <strong>VL | Valentino</strong>:<br><br>
+        <strong>1. ${first.name} (${first.collection} • ${first.volume}):</strong> Uma composição <em>${first.family}</em> marcada pela abertura de ${first.topNotes.join(", ").toLowerCase()}, evoluindo para um coração de ${first.heartNotes.join(", ").toLowerCase()} e fundo envolvente de ${first.baseNotes.join(", ").toLowerCase()} — traduzindo um perfil <strong>${first.personality.join(", ").toLowerCase()}</strong>.<br><br>
+        <strong>2. ${second.name} (${second.collection} • ${second.volume}):</strong> Como segunda harmonização, destaca-se pelas notas de ${second.heartNotes.slice(0, 2).join(" e ").toLowerCase()} sobre uma base de ${second.baseNotes.slice(0, 2).join(" e ").toLowerCase()}. Clique nos cartões abaixo para explorar a pirâmide olfativa completa:
+      `;
+
+      return { message, recommendations: topTwo };
+    }
+
+    /* ========================================================================
+       9. INICIALIZAÇÃO
+       ======================================================================== */
+    document.addEventListener("DOMContentLoaded", () => {
+      renderCatalog();
+      updateBagUI();
+      initConciergeChat();
+    });
+  </script>
+</body>
+</html>
